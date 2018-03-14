@@ -47,9 +47,9 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(270, 25);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(83, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(113, 19);
             this.metroLabel2.TabIndex = 1;
-            this.metroLabel2.Text = "metroLabel2";
+            this.metroLabel2.Text = "Grafikkartenname";
             // 
             // FormGrafikkarte
             // 
