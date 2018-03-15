@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Mainboard");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("CPU");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Arbeitsspeicher");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Grafikkarte");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Datenträger");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Ethernet");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("MANU-GAMING_PC", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Mainboard");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("CPU");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Arbeitsspeicher");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grafikkarte");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Datenträger");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Internet");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("MANU-GAMING_PC", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.MainPanel = new MetroFramework.Controls.MetroPanel();
             this.SuspendLayout();
@@ -49,22 +49,22 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(27, 64);
             this.treeView1.Name = "treeView1";
-            treeNode8.Name = "Mainboard";
-            treeNode8.Text = "Mainboard";
-            treeNode9.Name = "CPU";
-            treeNode9.Text = "CPU";
-            treeNode10.Name = "Arbeitsspeicher";
-            treeNode10.Text = "Arbeitsspeicher";
-            treeNode11.Name = "Grafikkarte";
-            treeNode11.Text = "Grafikkarte";
-            treeNode12.Name = "Datenträger";
-            treeNode12.Text = "Datenträger";
-            treeNode13.Name = "Ethernet";
-            treeNode13.Text = "Ethernet";
-            treeNode14.Name = "MANU-GAMING_PC";
-            treeNode14.Text = "MANU-GAMING_PC";
+            treeNode1.Name = "Mainboard";
+            treeNode1.Text = "Mainboard";
+            treeNode2.Name = "CPU";
+            treeNode2.Text = "CPU";
+            treeNode3.Name = "Arbeitsspeicher";
+            treeNode3.Text = "Arbeitsspeicher";
+            treeNode4.Name = "Grafikkarte";
+            treeNode4.Text = "Grafikkarte";
+            treeNode5.Name = "Datenträger";
+            treeNode5.Text = "Datenträger";
+            treeNode6.Name = "Internet";
+            treeNode6.Text = "Internet";
+            treeNode7.Name = "MANU-GAMING_PC";
+            treeNode7.Text = "MANU-GAMING_PC";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode14});
+            treeNode7});
             this.treeView1.Size = new System.Drawing.Size(187, 389);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
