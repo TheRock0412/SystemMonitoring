@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.ramChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -38,14 +38,14 @@
             // 
             // ramChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.ramChart.ChartAreas.Add(chartArea4);
+            chartArea1.Name = "ChartArea1";
+            this.ramChart.ChartAreas.Add(chartArea1);
             this.ramChart.Location = new System.Drawing.Point(6, 46);
             this.ramChart.Name = "ramChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Name = "RAM_Usage";
-            this.ramChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Name = "RAM_Usage";
+            this.ramChart.Series.Add(series1);
             this.ramChart.Size = new System.Drawing.Size(570, 200);
             this.ramChart.TabIndex = 25;
             this.ramChart.Text = "chart1";
@@ -74,7 +74,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(567, 359);
+            this.ClientSize = new System.Drawing.Size(565, 390);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.ramChart);

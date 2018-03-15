@@ -176,9 +176,9 @@
             this.metroLabel13.AutoSize = true;
             this.metroLabel13.Location = new System.Drawing.Point(12, 235);
             this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(114, 19);
+            this.metroLabel13.Size = new System.Drawing.Size(120, 19);
             this.metroLabel13.TabIndex = 18;
-            this.metroLabel13.Text = "Ethernet-Adapter:";
+            this.metroLabel13.Text = "Netzwerk-Adapter:";
             // 
             // metroLabel14
             // 
@@ -290,7 +290,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(565, 389);
+            this.ClientSize = new System.Drawing.Size(565, 390);
             this.Controls.Add(this.metroLabel24);
             this.Controls.Add(this.metroLabel23);
             this.Controls.Add(this.metroLabel22);

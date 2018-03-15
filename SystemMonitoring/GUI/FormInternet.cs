@@ -17,8 +17,8 @@ namespace SystemMonitoring.GUI
             InitializeComponent();
 
             metroLabel2.Text = Hardware.Ethernet.GetNetworkAdapter();
-            metroLabel4.Text = Hardware.Ethernet.GetNetworkName();
-            metroLabel6.Text = Hardware.Ethernet.GetDNSName();
+            metroLabel4.Text = Hardware.Ethernet.GetVerbindungstyp();
+            metroLabel6.Text = Hardware.Ethernet.GetDNSSurffix();
             metroLabel8.Text = Hardware.Ethernet.GetIPAddress4();
             metroLabel10.Text = Hardware.Ethernet.GetIPAddress6();
             metroLabel12.Text = Hardware.Ethernet.GetMACAddress();

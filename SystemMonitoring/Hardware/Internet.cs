@@ -18,6 +18,68 @@ namespace SystemMonitoring.Hardware
 
         }
 
+        public static string GetNetworkAdapter()
+        {
+            NetworkInterface[] networkadapter = NetworkInterface.GetAllNetworkInterfaces();
+            String netadapter = string.Empty;
+
+            foreach (NetworkInterface adapter in networkadapter)
+            {
+                if (netadapter == String.Empty)
+                {
+                    IPInterfaceProperties properties = adapter.GetIPProperties();
+                    netadapter = adapter.Description.ToString();
+                }
+            }
+            return netadapter;
+        }
+
+        public static string GetGateway()
+        {
+            String Gateway = "";
+
+            foreach (NetworkInterface f in NetworkInterface.GetAllNetworkInterfaces())
+                if (f.OperationalStatus == OperationalStatus.Up)
+                {
+                    foreach (GatewayIPAddressInformation d in f.GetIPProperties().GatewayAddresses)
+                    {
+                        Gateway = d.Address.ToString();
+                    }
+                }
+            return Gateway;
+        }
+
+        public static string GetVerbindungstyp()
+        {
+            NetworkInterface[] networkadapter = NetworkInterface.GetAllNetworkInterfaces();
+            String networkname = string.Empty;
+
+            foreach (NetworkInterface adapter in networkadapter)
+            {
+                if (networkname == String.Empty)
+                {
+                    IPInterfaceProperties properties = adapter.GetIPProperties();
+                    networkname = adapter.Name.ToString();
+                }
+            }
+            return networkname;
+        }
+
+        public static string GetDNSSurffix()
+        {
+            NetworkInterface[] dnsname = NetworkInterface.GetAllNetworkInterfaces();
+            string HostName = string.Empty;
+
+            foreach (NetworkInterface adapter in dnsname)
+            {
+                if (HostName == string.Empty)
+                {
+                    HostName = adapter.GetIPProperties().DnsSuffix;
+                }
+            }
+            return HostName;
+        }
+
         public static string GetIPAddress4()
         {
             IPHostEntry host;
@@ -51,55 +113,6 @@ namespace SystemMonitoring.Hardware
             return IPv6;
         }
 
-        public static string GetNetworkAdapter()
-        {
-            NetworkInterface[] networkadapter = NetworkInterface.GetAllNetworkInterfaces();
-            String netadapter = string.Empty;
-
-            foreach (NetworkInterface adapter in networkadapter)
-            {
-                if (netadapter == String.Empty)
-                {
-                    IPInterfaceProperties properties = adapter.GetIPProperties();
-                    netadapter = adapter.Description.ToString();
-                }
-
-            }
-            return netadapter;
-        }
-
-        public static string GetNetworkName()
-        {
-            NetworkInterface[] networkadapter = NetworkInterface.GetAllNetworkInterfaces();
-            String networkname = string.Empty;
-
-            foreach (NetworkInterface adapter in networkadapter)
-            {
-                if (networkname == String.Empty)
-                {
-                    IPInterfaceProperties properties = adapter.GetIPProperties();
-                    networkname = adapter.Name.ToString();
-                }
-
-            }
-            return networkname;
-        }
-
-        public static string GetGateway()
-        {
-            String Gateway = "";
-
-            foreach (NetworkInterface f in NetworkInterface.GetAllNetworkInterfaces())
-                if (f.OperationalStatus == OperationalStatus.Up)
-                {
-                    foreach (GatewayIPAddressInformation d in f.GetIPProperties().GatewayAddresses)
-                    {
-                        Gateway = d.Address.ToString();
-                    }
-                }
-            return Gateway;
-        }
-
         public static string GetMACAddress()
         {
             NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
@@ -115,22 +128,6 @@ namespace SystemMonitoring.Hardware
             }
             var output = string.Join(":", Enumerable.Range(0, 6).Select(i => sMacAddress.Substring(i * 2, 2)));
             return output;
-        }
-
-        public static string GetDNSName()
-        {
-            NetworkInterface[] dnsname = NetworkInterface.GetAllNetworkInterfaces();
-            string HostName = string.Empty;
-
-            foreach (NetworkInterface adapter in dnsname)
-            {
-                if (HostName == string.Empty)
-                {
-                    IPInterfaceProperties properties = adapter.GetIPProperties();
-                    HostName = adapter.Speed.ToString();
-                }
-            }
-            return HostName;
         }
     }
 }

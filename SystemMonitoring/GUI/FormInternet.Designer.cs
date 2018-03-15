@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -43,6 +43,10 @@
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,9 +56,9 @@
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.Location = new System.Drawing.Point(12, 19);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(75, 25);
+            this.metroLabel1.Size = new System.Drawing.Size(70, 25);
             this.metroLabel1.TabIndex = 0;
-            this.metroLabel1.Text = "Ethernet";
+            this.metroLabel1.Text = "Internet";
             // 
             // metroLabel2
             // 
@@ -68,14 +72,14 @@
             // chart1
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.SteelBlue;
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(6, 46);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(570, 200);
             this.chart1.TabIndex = 25;
             this.chart1.Text = "chart1";
@@ -86,9 +90,9 @@
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel3.Location = new System.Drawing.Point(230, 260);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(80, 15);
+            this.metroLabel3.Size = new System.Drawing.Size(88, 15);
             this.metroLabel3.TabIndex = 26;
-            this.metroLabel3.Text = "Adaptername:";
+            this.metroLabel3.Text = "Verbindungstyp:";
             // 
             // metroLabel4
             // 
@@ -106,9 +110,9 @@
             this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel5.Location = new System.Drawing.Point(230, 280);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(69, 15);
+            this.metroLabel5.Size = new System.Drawing.Size(67, 15);
             this.metroLabel5.TabIndex = 28;
-            this.metroLabel5.Text = "DNS-Name:";
+            this.metroLabel5.Text = "DNS-Surffix:";
             // 
             // metroLabel6
             // 
@@ -180,12 +184,54 @@
             this.metroLabel12.TabIndex = 35;
             this.metroLabel12.Text = "metroLabel12";
             // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel13.Location = new System.Drawing.Point(77, 260);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(44, 15);
+            this.metroLabel13.TabIndex = 36;
+            this.metroLabel13.Text = "Senden";
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.Location = new System.Drawing.Point(77, 280);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(16, 19);
+            this.metroLabel14.TabIndex = 37;
+            this.metroLabel14.Text = "0";
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.AutoSize = true;
+            this.metroLabel15.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel15.Location = new System.Drawing.Point(77, 316);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(64, 15);
+            this.metroLabel15.TabIndex = 38;
+            this.metroLabel15.Text = "Empfangen";
+            // 
+            // metroLabel16
+            // 
+            this.metroLabel16.AutoSize = true;
+            this.metroLabel16.Location = new System.Drawing.Point(77, 336);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(16, 19);
+            this.metroLabel16.TabIndex = 39;
+            this.metroLabel16.Text = "0";
+            // 
             // FormEthernet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(567, 359);
+            this.ClientSize = new System.Drawing.Size(565, 390);
+            this.Controls.Add(this.metroLabel16);
+            this.Controls.Add(this.metroLabel15);
+            this.Controls.Add(this.metroLabel14);
+            this.Controls.Add(this.metroLabel13);
             this.Controls.Add(this.metroLabel12);
             this.Controls.Add(this.metroLabel11);
             this.Controls.Add(this.metroLabel10);
@@ -223,5 +269,9 @@
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
+        private MetroFramework.Controls.MetroLabel metroLabel16;
     }
 }
