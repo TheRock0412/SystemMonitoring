@@ -53,18 +53,6 @@ namespace SystemMonitoring
                     break;
 
                 case "CPU":
-
-                    //metroLabel1.Text = "CPU";
-                    //metroLabel2.Text = Hardware.CPU.CPUName;
-
-                    //cpuChart.Visible = true;
-                    //ramChart.Visible = false;
-
-                    //metroLabel15.Text = "Basisgeschwindigkeit:";
-                    //metroLabel16.Text = (int)Hardware.CPU.CPUSpeed + " GHz";
-                    //metroLabel17.Text = "CPU Type:";
-                    //metroLabel18.Text = Hardware.CPU.CPUType;
-                    
                     f.Dispose();
                     f = new GUI.FormCPU();
                     f.TopLevel = false;
@@ -82,16 +70,6 @@ namespace SystemMonitoring
                     this.MainPanel.Controls.Add(f);
                     f.Dock = DockStyle.Fill;
                     f.Show();
-
-                    //metroLabel1.Text = "Arbeitsspeicher";
-                    //metroLabel2.Text = Hardware.RAM.RAMName;
-
-                    //cpuChart.Visible = false;
-                    //ramChart.Visible = true;
-
-
-                    //metroLabel3.Text = "Verfügbarer Speicher";
-                    //metroLabel4.Text = (double)Hardware.RAM.RAMVerfügbar + " GB";
                     break;
 
                 case "Grafikkarte":
@@ -102,10 +80,6 @@ namespace SystemMonitoring
                     this.MainPanel.Controls.Add(f);
                     f.Dock = DockStyle.Fill;
                     f.Show();
-                    //metroLabel1.Text = "Grafikkarte";
-                    ////metroLabel2.Text = Hardware.Grafikkarte.GPUName;
-
-                    //metroLabel1.Text = "Grafikkarte";
                     break;
 
                 case "Datenträger":
@@ -118,7 +92,7 @@ namespace SystemMonitoring
                     f.Show();
                     break;
 
-                case "Ethernet":
+                case "Internet":
                     f.Dispose();
                     f = new GUI.FormEthernet();
                     f.TopLevel = false;
