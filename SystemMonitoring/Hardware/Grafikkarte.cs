@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Management;
 
 
@@ -6,24 +7,26 @@ namespace SystemMonitoring.Hardware
 {
     class Grafikkarte
     {
-        
+
 
 
         public Grafikkarte()
         {
-            asdf("Win32_VideoController", "Name");
+            //asdf("Win32_VideoController", "Name");
         }
 
-        public static void asdf(string test, string syntax)
+        public static string Asdf()
         {
+            String name = "";
 
+            //    //////ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + test);
+            //    //////foreach (ManagementObject nj in mos.Get())
+            //    //////{
+            //    //////    String name = Convert.ToString("asdf " + nj[syntax]);
 
-            //ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + test);
-            //foreach (ManagementObject nj in mos.Get())
-            //{
-            //    String name = Convert.ToString("asdf " + nj[syntax]);
-                
-            //}return name;
+            //    //////return name;
+
+            return name;
         }
 
 

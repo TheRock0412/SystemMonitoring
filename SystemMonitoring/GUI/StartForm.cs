@@ -17,8 +17,6 @@ namespace SystemMonitoring.GUI
         string OS_Name;
         string Version;
         string Hersteller;
-        string Computer_Name;
-        string Windows_Directory;
 
         public StartForm()
         {
@@ -31,19 +29,19 @@ namespace SystemMonitoring.GUI
                 OS_Name = mo["name"].ToString();
                 Version = mo["version"].ToString();
                 Hersteller = mo["Manufacturer"].ToString();
-                Computer_Name = mo["csname"].ToString();
-                Windows_Directory = mo["WindowsDirectory"].ToString();
             }
 
             metroLabel2.Text = System.Windows.Forms.SystemInformation.ComputerName.ToString();
+            metroLabel26.Text = Environment.UserName;
             metroLabel4.Text = Hardware.Mainboard.Product;
             metroLabel6.Text = Hardware.CPU.CPUName;
             metroLabel8.Text = Hardware.RAM.RAMName;
-            //metroLabel10.Text = Hardware.Grafikkarte.asdf();
+            //metroLabel10.Text = Hardware.Grafikkarte.Asdf();
+            //metroLabel10.Text = Hardware.;
             metroLabel12.Text = Hardware.Datenträger.DatenträgerName;
-            metroLabel14.Text = Hardware.Ethernet.GetNetworkAdapter();
-            metroLabel16.Text = Hardware.Ethernet.GetIPAddress4();
-            metroLabel18.Text = Hardware.Ethernet.GetGateway();
+            metroLabel14.Text = Hardware.Internet.GetNetworkAdapter();
+            metroLabel16.Text = Hardware.Internet.GetIPAddress4();
+            metroLabel18.Text = Hardware.Internet.GetGateway();
             metroLabel20.Text = OS_Name;
             metroLabel22.Text = Hersteller;
             metroLabel24.Text = Version;

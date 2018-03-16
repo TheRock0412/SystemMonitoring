@@ -28,9 +28,10 @@ namespace SystemMonitoring
 
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-           TreeNode node = treeView1.SelectedNode;
+            TreeNode node = treeView1.SelectedNode;
+            //node = treeView1.Nodes.Add(System.Windows.Forms.SystemInformation.ComputerName.ToString());
 
-           switch (node.Text)
+            switch (node.Text)
             {
                 case "MANU-GAMING_PC":
                     f.Dispose();
@@ -59,7 +60,7 @@ namespace SystemMonitoring
 
                     this.MainPanel.Controls.Add(f);
                     f.Dock = DockStyle.Fill;
-                    f.Show(); 
+                    f.Show();
                     break;
 
                 case "Arbeitsspeicher":
@@ -94,7 +95,7 @@ namespace SystemMonitoring
 
                 case "Internet":
                     f.Dispose();
-                    f = new GUI.FormEthernet();
+                    f = new GUI.FormInternet();
                     f.TopLevel = false;
 
                     this.MainPanel.Controls.Add(f);

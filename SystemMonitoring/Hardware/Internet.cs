@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -10,11 +11,18 @@ using System.Windows.Forms;
 
 namespace SystemMonitoring.Hardware
 {
-    class Ethernet
+    class Internet
     {
 
-        public Ethernet()
+        public Internet()
         {
+            //PerformanceCounterCategory category = new PerformanceCounterCategory("Network Interface");
+            //String[] instancename = category.GetInstanceNames();
+
+            //    foreach (string aname in instancename)
+            //    {
+            //        Console.WriteLine(aname.GetType());
+            //    }
 
         }
 
