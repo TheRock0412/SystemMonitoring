@@ -20,6 +20,7 @@ namespace SystemMonitoring.GUI
         private Thread empfangenThread;
         private double[] empfangenArray = new double[60];
 
+        //Kommentar eingefügt
         public FormInternet()
         {
             InitializeComponent();
@@ -30,13 +31,11 @@ namespace SystemMonitoring.GUI
             metroLabel8.Text = Hardware.Internet.GetIPAddress4();
             metroLabel10.Text = Hardware.Internet.GetIPAddress6();
             metroLabel12.Text = Hardware.Internet.GetMACAddress();
-
         }
 
         public void getPerformanceCountersSenden()
         {
-            var sendenPerfCounter = new PerformanceCounter("Network Interface", "Bytes Sent/sec", "Intel[R] 82579LM Gigabit Network Connection");
-
+            var sendenPerfCounter = new PerformanceCounter("Network Interface", "Bytes Sent/sec", Hardware.Internet.GetNetworkAdapter());
             while (true)
             {
                 sendenArray[sendenArray.Length - 1] = Math.Round(sendenPerfCounter.NextValue() / 100, 0);
@@ -51,7 +50,6 @@ namespace SystemMonitoring.GUI
                 {
                     //......
                 }
-
                 Thread.Sleep(1000);
             }
         }
@@ -63,18 +61,21 @@ namespace SystemMonitoring.GUI
             for (int i = 0; i < sendenArray.Length - 1; ++i)
             {
                 InternetChart.Series["Senden_Usage"].Points.AddY(sendenArray[i]);
+                metroLabel14.Text = string.Format("{0:0.00} KBit/s", sendenArray[i] / 100);
             }
         }
 
         public void getPerformanceCountersEmpfangen()
         {
-            var empfangenPerfCounter = new PerformanceCounter("Network Interface", "Bytes Received/sec", "Intel[R] 82579LM Gigabit Network Connection");
+            var empfangenPerfCounter = new PerformanceCounter("Network Interface", "Bytes Received/sec", Hardware.Internet.GetNetworkAdapter());
 
             while (true)
             {
                 empfangenArray[empfangenArray.Length - 1] = Math.Round(empfangenPerfCounter.NextValue() / 100, 0);
 
                 Array.Copy(empfangenArray, 1, empfangenArray, 0, empfangenArray.Length - 1);
+
+                
 
                 if (InternetChart.IsHandleCreated)
                 {
@@ -84,7 +85,6 @@ namespace SystemMonitoring.GUI
                 {
                     //......
                 }
-
                 Thread.Sleep(1000);
             }
         }
@@ -96,33 +96,22 @@ namespace SystemMonitoring.GUI
             for (int i = 0; i < empfangenArray.Length - 1; ++i)
             {
                 InternetChart.Series["Empfangen_Usage"].Points.AddY(empfangenArray[i]);
+                metroLabel16.Text = string.Format("{0:0.00} KBit/s", empfangenArray[i] / 100);
             }
         }
-
 
         private void FormInternet_Load(object sender, EventArgs e)
         {
             sendenThread = new Thread(new ThreadStart(this.getPerformanceCountersSenden));
             sendenThread.IsBackground = true;
             sendenThread.Start();
-            
+
             empfangenThread = new Thread(new ThreadStart(this.getPerformanceCountersEmpfangen));
             empfangenThread.IsBackground = true;
             empfangenThread.Start();
 
-            InternetChart.ChartAreas[0].AxisY.Maximum = 500;
+            InternetChart.ChartAreas[0].AxisY.Maximum = 100;
             InternetChart.ChartAreas[0].AxisY.Minimum = 0;
-
-            timer1.Start();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            float fsenden = perSenden.NextValue() / 100;
-            float fempfangen = perEmpfangen.NextValue() / 100;
-
-            metroLabel14.Text = string.Format("{0:0} KBits/s", fsenden);
-            metroLabel16.Text = string.Format("{0:0} KBits/s", fempfangen);
         }
     }
 }

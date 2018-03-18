@@ -19,12 +19,23 @@ namespace SystemMonitoring.Hardware
         {
             String name = "";
 
-            //    //////ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + test);
-            //    //////foreach (ManagementObject nj in mos.Get())
-            //    //////{
-            //    //////    String name = Convert.ToString("asdf " + nj[syntax]);
+            //ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + test);
+            //foreach (ManagementObject nj in mos.Get())
+            //{
+            //    String name = Convert.ToString("asdf " + nj[syntax]);
 
-            //    //////return name;
+            //return name;
+
+
+            PerformanceCounterCategory category = new PerformanceCounterCategory("Network Interface");
+            String[] instancename = category.GetInstanceNames();
+
+            foreach (string aname in instancename)
+            {
+                Console.WriteLine(aname);
+            }
+
+
 
             return name;
         }

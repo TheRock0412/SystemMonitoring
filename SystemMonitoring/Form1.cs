@@ -29,11 +29,10 @@ namespace SystemMonitoring
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode node = treeView1.SelectedNode;
-            //node = treeView1.Nodes.Add(System.Windows.Forms.SystemInformation.ComputerName.ToString());
 
             switch (node.Text)
             {
-                case "MANU-GAMING_PC":
+                case "Hardware":
                     f.Dispose();
                     f = new GUI.StartForm();
                     f.TopLevel = false;

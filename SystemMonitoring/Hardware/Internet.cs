@@ -16,13 +16,6 @@ namespace SystemMonitoring.Hardware
 
         public Internet()
         {
-            //PerformanceCounterCategory category = new PerformanceCounterCategory("Network Interface");
-            //String[] instancename = category.GetInstanceNames();
-
-            //    foreach (string aname in instancename)
-            //    {
-            //        Console.WriteLine(aname.GetType());
-            //    }
 
         }
 
@@ -37,8 +30,11 @@ namespace SystemMonitoring.Hardware
                 {
                     IPInterfaceProperties properties = adapter.GetIPProperties();
                     netadapter = adapter.Description.ToString();
+                    netadapter = netadapter.Replace("(", "[");
+                    netadapter = netadapter.Replace(")", "]");
                 }
             }
+            
             return netadapter;
         }
 

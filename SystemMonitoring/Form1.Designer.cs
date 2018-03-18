@@ -34,7 +34,7 @@
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grafikkarte");
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Datenträger");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Internet");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("MANU-GAMING_PC", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Hardware", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
@@ -61,8 +61,8 @@
             treeNode5.Text = "Datenträger";
             treeNode6.Name = "Internet";
             treeNode6.Text = "Internet";
-            treeNode7.Name = "MANU-GAMING_PC";
-            treeNode7.Text = "MANU-GAMING_PC";
+            treeNode7.Name = "treeview1";
+            treeNode7.Text = "Hardware";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode7});
             this.treeView1.Size = new System.Drawing.Size(187, 389);

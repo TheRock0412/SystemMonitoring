@@ -36,8 +36,7 @@ namespace SystemMonitoring.GUI
             metroLabel4.Text = Hardware.Mainboard.Product;
             metroLabel6.Text = Hardware.CPU.CPUName;
             metroLabel8.Text = Hardware.RAM.RAMName;
-            //metroLabel10.Text = Hardware.Grafikkarte.Asdf();
-            //metroLabel10.Text = Hardware.;
+            metroLabel10.Text = Hardware.Grafikkarte.Asdf();
             metroLabel12.Text = Hardware.Datenträger.DatenträgerName;
             metroLabel14.Text = Hardware.Internet.GetNetworkAdapter();
             metroLabel16.Text = Hardware.Internet.GetIPAddress4();

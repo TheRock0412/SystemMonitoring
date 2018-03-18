@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.InternetChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -49,12 +48,7 @@
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
-            this.perSenden = new System.Diagnostics.PerformanceCounter();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.perEmpfangen = new System.Diagnostics.PerformanceCounter();
             ((System.ComponentModel.ISupportInitialize)(this.InternetChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.perSenden)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.perEmpfangen)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -79,18 +73,18 @@
             // InternetChart
             // 
             this.InternetChart.BorderlineColor = System.Drawing.Color.SteelBlue;
-            chartArea2.Name = "ChartArea1";
-            this.InternetChart.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.InternetChart.ChartAreas.Add(chartArea1);
             this.InternetChart.Location = new System.Drawing.Point(6, 46);
             this.InternetChart.Name = "InternetChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Name = "Senden_Usage";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Name = "Empfangen_Usage";
-            this.InternetChart.Series.Add(series3);
-            this.InternetChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Name = "Senden_Usage";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Name = "Empfangen_Usage";
+            this.InternetChart.Series.Add(series1);
+            this.InternetChart.Series.Add(series2);
             this.InternetChart.Size = new System.Drawing.Size(570, 200);
             this.InternetChart.TabIndex = 25;
             this.InternetChart.Text = "chart1";
@@ -233,23 +227,6 @@
             this.metroLabel16.TabIndex = 39;
             this.metroLabel16.Text = "0 KBit/s";
             // 
-            // perSenden
-            // 
-            this.perSenden.CategoryName = "Network Interface";
-            this.perSenden.CounterName = "Bytes Sent/sec";
-            this.perSenden.InstanceName = "Intel[R] 82579LM Gigabit Network Connection";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // perEmpfangen
-            // 
-            this.perEmpfangen.CategoryName = "Network Interface";
-            this.perEmpfangen.CounterName = "Bytes Received/sec";
-            this.perEmpfangen.InstanceName = "Intel[R] 82579LM Gigabit Network Connection";
-            // 
             // FormInternet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,8 +255,6 @@
             this.Text = "FormEthernet";
             this.Load += new System.EventHandler(this.FormInternet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.InternetChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.perSenden)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.perEmpfangen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,8 +279,5 @@
         private MetroFramework.Controls.MetroLabel metroLabel14;
         private MetroFramework.Controls.MetroLabel metroLabel15;
         private MetroFramework.Controls.MetroLabel metroLabel16;
-        private System.Diagnostics.PerformanceCounter perSenden;
-        private System.Windows.Forms.Timer timer1;
-        private System.Diagnostics.PerformanceCounter perEmpfangen;
     }
 }
