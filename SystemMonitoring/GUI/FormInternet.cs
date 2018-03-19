@@ -20,7 +20,6 @@ namespace SystemMonitoring.GUI
         private Thread empfangenThread;
         private double[] empfangenArray = new double[60];
 
-        //Kommentar eingefügt
         public FormInternet()
         {
             InitializeComponent();
@@ -74,8 +73,6 @@ namespace SystemMonitoring.GUI
                 empfangenArray[empfangenArray.Length - 1] = Math.Round(empfangenPerfCounter.NextValue() / 100, 0);
 
                 Array.Copy(empfangenArray, 1, empfangenArray, 0, empfangenArray.Length - 1);
-
-                
 
                 if (InternetChart.IsHandleCreated)
                 {

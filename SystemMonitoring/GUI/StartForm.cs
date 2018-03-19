@@ -36,7 +36,7 @@ namespace SystemMonitoring.GUI
             metroLabel4.Text = Hardware.Mainboard.Product;
             metroLabel6.Text = Hardware.CPU.CPUName;
             metroLabel8.Text = Hardware.RAM.RAMName;
-            metroLabel10.Text = Hardware.Grafikkarte.Asdf();
+            metroLabel10.Text = Hardware.Grafikkarte.GPUName("Win32_VideoController", "Name");
             metroLabel12.Text = Hardware.Datenträger.DatenträgerName;
             metroLabel14.Text = Hardware.Internet.GetNetworkAdapter();
             metroLabel16.Text = Hardware.Internet.GetIPAddress4();
@@ -44,7 +44,6 @@ namespace SystemMonitoring.GUI
             metroLabel20.Text = OS_Name;
             metroLabel22.Text = Hersteller;
             metroLabel24.Text = Version;
-
         }
 
         private void StartForm_Load(object sender, EventArgs e)

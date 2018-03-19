@@ -15,6 +15,8 @@ namespace SystemMonitoring.GUI
         public FormGrafikkarte()
         {
             InitializeComponent();
+
+            metroLabel2.Text = Hardware.Grafikkarte.GPUName("Win32_VideoController", "Name");
         }
     }
 }

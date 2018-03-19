@@ -34,7 +34,6 @@ namespace SystemMonitoring.Hardware
                     netadapter = netadapter.Replace(")", "]");
                 }
             }
-            
             return netadapter;
         }
 
