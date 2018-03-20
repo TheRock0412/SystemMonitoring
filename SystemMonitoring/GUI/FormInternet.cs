@@ -30,6 +30,7 @@ namespace SystemMonitoring.GUI
             metroLabel8.Text = Hardware.Internet.GetIPAddress4();
             metroLabel10.Text = Hardware.Internet.GetIPAddress6();
             metroLabel12.Text = Hardware.Internet.GetMACAddress();
+            metroLabel18.Text = Hardware.Internet.GetGateway();
         }
 
         public void getPerformanceCountersSenden()

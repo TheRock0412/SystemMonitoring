@@ -32,15 +32,17 @@
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("CPU");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Arbeitsspeicher");
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grafikkarte");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Datenträger");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Bildschirm");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Internet");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Hardware", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Datenträger");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Hardware", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
             treeNode4,
             treeNode5,
-            treeNode6});
+            treeNode6,
+            treeNode7});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.MainPanel = new MetroFramework.Controls.MetroPanel();
             this.SuspendLayout();
@@ -57,14 +59,16 @@
             treeNode3.Text = "Arbeitsspeicher";
             treeNode4.Name = "Grafikkarte";
             treeNode4.Text = "Grafikkarte";
-            treeNode5.Name = "Datenträger";
-            treeNode5.Text = "Datenträger";
+            treeNode5.Name = "Bildschirm";
+            treeNode5.Text = "Bildschirm";
             treeNode6.Name = "Internet";
             treeNode6.Text = "Internet";
-            treeNode7.Name = "treeview1";
-            treeNode7.Text = "Hardware";
+            treeNode7.Name = "Datenträger";
+            treeNode7.Text = "Datenträger";
+            treeNode8.Name = "treeview1";
+            treeNode8.Text = "Hardware";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode7});
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(187, 389);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);

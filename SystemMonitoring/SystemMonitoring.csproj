@@ -70,6 +70,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormBildschirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormBildschirm.Designer.cs">
+      <DependentUpon>FormBildschirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormCPU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,7 @@
     <Compile Include="GUI\FormDatenträger.Designer.cs">
       <DependentUpon>FormDatenträger.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hardware\Bildschirm.cs" />
     <Compile Include="Hardware\CPU.cs" />
     <Compile Include="Hardware\Datenträger.cs" />
     <Compile Include="Hardware\Grafikkarte.cs" />
@@ -123,6 +130,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormBildschirm.resx">
+      <DependentUpon>FormBildschirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCPU.resx">
       <DependentUpon>FormCPU.cs</DependentUpon>

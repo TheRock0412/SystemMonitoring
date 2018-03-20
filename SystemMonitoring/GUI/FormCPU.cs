@@ -13,7 +13,6 @@ namespace SystemMonitoring.GUI
         public FormCPU()
         {
             InitializeComponent();
-                   
 
             metroLabel2.Text = Hardware.CPU.CPUName;
             //metroLabel4.Text = Hardware.CPU.CPUSpeed.ToString();
