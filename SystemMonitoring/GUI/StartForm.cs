@@ -22,11 +22,14 @@ namespace SystemMonitoring.GUI
         {
             InitializeComponent();
 
+            //Link für die WIM Bib: msdn.microsoft.com/en-us/library/aa389273.aspx
+
             ManagementObjectSearcher OS = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectCollection queryCollection1 = OS.Get();
             foreach (ManagementObject mo in queryCollection1)
             {
-                OS_Name = mo["name"].ToString();
+                //OS_Name = mo["csname"].ToString();
+                OS_Name = mo["OSArchitecture"].ToString();
                 Version = mo["version"].ToString();
                 Hersteller = mo["Manufacturer"].ToString();
             }
@@ -37,8 +40,8 @@ namespace SystemMonitoring.GUI
             metroLabel4.Text = Hardware.Mainboard.Product;
             metroLabel6.Text = Hardware.CPU.CPUName;
             metroLabel8.Text = Hardware.RAM.RAMName;
-            metroLabel10.Text = Hardware.Grafikkarte.GPUName("Win32_VideoController ", "Name");
-            metroLabel12.Text = Hardware.Bildschirm.BildschirmName("Win32_DesktopMonitor", "Name");
+            metroLabel10.Text = Hardware.Grafikkarte.GPUName("Win32_VideoController", "Name");
+           // metroLabel12.Text = Hardware.Bildschirm.BildschirmName("MSFT_MTLogicalProcessor", "Description");
             metroLabel14.Text = Hardware.Internet.GetNetworkAdapter();
             metroLabel16.Text = Hardware.Datenträger.DatenträgerName;
             //metroLabel18.Text = Hardware.Internet.GetGateway();

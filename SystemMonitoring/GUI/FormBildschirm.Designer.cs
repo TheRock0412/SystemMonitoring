@@ -38,6 +38,8 @@
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -131,12 +133,32 @@
             this.metroLabel10.TabIndex = 9;
             this.metroLabel10.Text = "metroLabel10";
             // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(13, 292);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(86, 19);
+            this.metroLabel11.TabIndex = 10;
+            this.metroLabel11.Text = "metroLabel11";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(228, 292);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(88, 19);
+            this.metroLabel12.TabIndex = 11;
+            this.metroLabel12.Text = "metroLabel12";
+            // 
             // FormBildschirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(565, 390);
+            this.Controls.Add(this.metroLabel12);
+            this.Controls.Add(this.metroLabel11);
             this.Controls.Add(this.metroLabel10);
             this.Controls.Add(this.metroLabel9);
             this.Controls.Add(this.metroLabel8);
@@ -167,5 +189,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
     }
 }

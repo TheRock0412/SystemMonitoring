@@ -12,8 +12,6 @@ namespace SystemMonitoring
         {
 
             //Hardware.Grafikkarte.Gr("Win32_VideoController", "Name");
-            Console.Read();
-
 
             //Hardware.SystemInfos systemInfos = new Hardware.SystemInfos();
             //Hardware.CPU cpuInfos = new Hardware.CPU();
@@ -21,8 +19,7 @@ namespace SystemMonitoring
 
             //systemInfos.GetType();
             //ramInfos.GetType();
-
-
+            
             //Console.WriteLine("Motherboard Properties:");
             //Console.WriteLine("-----------------------------------------------------------------------------");
             //Console.WriteLine("-----------------------------------------------------------------------------");
@@ -50,6 +47,20 @@ namespace SystemMonitoring
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+
+
+            //private void OnLoaded(object sender, RoutedEventArgs e)
+            //{
+            //    ManagementObjectSearcher ds = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+
+            //    foreach (ManagementObject d in ds.Get())
+            //    {
+            //        comboBoxDisks.Items.Add(d["Model"].ToString());
+            //    }
+            //    comboBoxDisks.SelectedIndex = 0;
+            //}
+
         }
     }
 }

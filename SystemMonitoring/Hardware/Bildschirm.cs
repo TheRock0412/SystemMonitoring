@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace SystemMonitoring.Hardware
 {
     class Bildschirm
-    {
+    {        
         public Bildschirm()
         {
 
