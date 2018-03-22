@@ -31,8 +31,8 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.comboBoxDisks = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.mLMediaType = new MetroFramework.Controls.MetroLabel();
+            this.mlMediaType_Value = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
@@ -59,38 +59,38 @@
             // 
             this.comboBoxDisks.FormattingEnabled = true;
             this.comboBoxDisks.ItemHeight = 23;
-            this.comboBoxDisks.Location = new System.Drawing.Point(270, 25);
+            this.comboBoxDisks.Location = new System.Drawing.Point(270, 17);
             this.comboBoxDisks.Name = "comboBoxDisks";
             this.comboBoxDisks.Size = new System.Drawing.Size(249, 29);
             this.comboBoxDisks.TabIndex = 2;
             this.comboBoxDisks.UseSelectable = true;
+            this.comboBoxDisks.Click += new System.EventHandler(this.comboBoxDisks_SelectionChanged);
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(139, 25);
+            this.metroLabel2.Location = new System.Drawing.Point(319, 104);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(83, 19);
             this.metroLabel2.TabIndex = 3;
             this.metroLabel2.Text = "metroLabel2";
             // 
-            // metroLabel3
+            // mLMediaType
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(25, 104);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel3.TabIndex = 4;
-            this.metroLabel3.Text = "metroLabel3";
+            this.mLMediaType.AutoSize = true;
+            this.mLMediaType.Location = new System.Drawing.Point(25, 104);
+            this.mLMediaType.Name = "mLMediaType";
+            this.mLMediaType.Size = new System.Drawing.Size(76, 19);
+            this.mLMediaType.TabIndex = 4;
+            this.mLMediaType.Text = "MediaType:";
             // 
-            // metroLabel4
+            // mlMediaType_Value
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(169, 104);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel4.TabIndex = 5;
-            this.metroLabel4.Text = "metroLabel4";
+            this.mlMediaType_Value.AutoSize = true;
+            this.mlMediaType_Value.Location = new System.Drawing.Point(169, 104);
+            this.mlMediaType_Value.Name = "mlMediaType_Value";
+            this.mlMediaType_Value.Size = new System.Drawing.Size(0, 0);
+            this.mlMediaType_Value.TabIndex = 5;
             // 
             // metroLabel5
             // 
@@ -198,14 +198,15 @@
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.metroLabel5);
-            this.Controls.Add(this.metroLabel4);
-            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.mlMediaType_Value);
+            this.Controls.Add(this.mLMediaType);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.comboBoxDisks);
             this.Controls.Add(this.metroLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDatenträger";
             this.Text = "FormDatenträger";
+            this.Load += new System.EventHandler(this.FormDatenträger_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,8 +217,8 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroComboBox comboBoxDisks;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel mLMediaType;
+        private MetroFramework.Controls.MetroLabel mlMediaType_Value;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel7;

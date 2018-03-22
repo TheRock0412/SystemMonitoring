@@ -1,4 +1,5 @@
-﻿using System.Management;
+﻿using System;
+using System.Management;
 using System.Windows.Forms;
 
 
@@ -15,7 +16,7 @@ namespace SystemMonitoring.GUI
 
         }
 
-        //private void OnLoaded(object sender, RoutedEventArgs e)
+        //private void OnLoaded(object sender, EventArgs e)
         //{
         //    ManagementObjectSearcher ds = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
 
@@ -26,25 +27,25 @@ namespace SystemMonitoring.GUI
         //    comboBoxDisks.SelectedIndex = 0;
         //}
 
-        private void OnLoaded(object sender, RoutedEventArgs e)
+        private void FormDatenträger_Load(object sender, EventArgs e)
         {
             ManagementObjectSearcher ds = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
 
             foreach (ManagementObject d in ds.Get())
             {
-                comboBoxDisks.Items.Add(d["Model"].ToString());
+                Console.WriteLine("Test: " + comboBoxDisks.Items.Add(d["Model"].ToString()));
             }
             comboBoxDisks.SelectedIndex = 0;
         }
 
-        private void comboBoxDisks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void comboBoxDisks_SelectionChanged(object sender, EventArgs e)
         {
             ManagementObjectSearcher mosDisks = new ManagementObjectSearcher(
                 "SELECT * FROM Win32_DiskDrive WHERE Model = '" + comboBoxDisks.SelectedItem + "'");
 
             foreach (ManagementObject disk in mosDisks.Get())
             {
-                metroLabel4.Text = disk["MediaType"].ToString();
+                mlMediaType_Value.Text = disk["MediaType"].ToString();
                 metroLabel6.Text = disk["Model"].ToString();
                 metroLabel8.Text = disk["SerialNumber"].ToString();
                 metroLabel10.Text = disk["InterfaceType"].ToString();
@@ -61,6 +62,5 @@ namespace SystemMonitoring.GUI
                 //tbTracksPerCylinder.Text = disk["TracksPerCylinder"].ToString();
             }
         }
-
     }
 }

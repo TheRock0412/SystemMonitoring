@@ -11,6 +11,15 @@ namespace SystemMonitoring
         static void Main()
         {
 
+            //Bezeichnung für die Variablen
+            //ml = metroLabel
+            
+            
+            
+            
+            
+            
+            
             //Hardware.Grafikkarte.Gr("Win32_VideoController", "Name");
 
             //Hardware.SystemInfos systemInfos = new Hardware.SystemInfos();
