@@ -33,7 +33,7 @@ namespace SystemMonitoring.GUI
 
             foreach (ManagementObject d in ds.Get())
             {
-                Console.WriteLine("Test: " + comboBoxDisks.Items.Add(d["Model"].ToString()));
+                comboBoxDisks.Items.Add(d["Model"].ToString());
             }
             comboBoxDisks.SelectedIndex = 0;
         }
@@ -45,21 +45,23 @@ namespace SystemMonitoring.GUI
 
             foreach (ManagementObject disk in mosDisks.Get())
             {
+                long Gesamtgroesse = long.Parse(disk["Size"].ToString());
+
+                mlModel_Value.Text = disk["Model"].ToString();
                 mlMediaType_Value.Text = disk["MediaType"].ToString();
-                metroLabel6.Text = disk["Model"].ToString();
-                metroLabel8.Text = disk["SerialNumber"].ToString();
-                metroLabel10.Text = disk["InterfaceType"].ToString();
-                metroLabel12.Text = disk["Size"].ToString() + " bytes";
-                metroLabel14.Text = disk["Partitions"].ToString();
-                //tbSignature.Text = disk["Signature"].ToString();
-                //tbFirmware.Text = disk["FirmwareRevision"].ToString();
-                //tbCylinders.Text = disk["TotalCylinders"].ToString();
-                //tbSectors.Text = disk["TotalSectors"].ToString();
-                //tbHeads.Text = disk["TotalHeads"].ToString();
-                //tbTracks.Text = disk["TotalTracks"].ToString();
-                //tbBytesPerSector.Text = disk["BytesPerSector"].ToString();
-                //tbSectorsPerTrack.Text = disk["SectorsPerTrack"].ToString();
-                //tbTracksPerCylinder.Text = disk["TracksPerCylinder"].ToString();
+                mlSerialNumber_Value.Text = disk["SerialNumber"].ToString();
+                mlInterfaceType_Value.Text = disk["InterfaceType"].ToString();
+                mlSize_Value.Text = string.Format("{0:0.00} GB", Gesamtgroesse / 1024 / 1024 / 1024);
+                mlPartitions_Value.Text = disk["Partitions"].ToString();
+                mlSignature_Value.Text = disk["Signature"].ToString();
+                mlFirmware_Value.Text = disk["FirmwareRevision"].ToString();
+                mlCylinders_Value.Text = disk["TotalCylinders"].ToString();
+                mlSectors_Value.Text = disk["TotalSectors"].ToString();
+                mlHeads_Value.Text = disk["TotalHeads"].ToString();
+                mlTracks_Value.Text = disk["TotalTracks"].ToString();
+                mlBytesPerSector_Value.Text = disk["BytesPerSector"].ToString();
+                mlSectorsPerTrack_Value.Text = disk["SectorsPerTrack"].ToString();
+                mlTracksPerCylinder_Value.Text = disk["TracksPerCylinder"].ToString();
             }
         }
     }

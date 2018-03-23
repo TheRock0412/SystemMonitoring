@@ -22,8 +22,6 @@ namespace SystemMonitoring.GUI
         {
             InitializeComponent();
 
-            //Link für die WIM Bib: msdn.microsoft.com/en-us/library/aa389273.aspx
-
             ManagementObjectSearcher OS = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectCollection queryCollection1 = OS.Get();
             foreach (ManagementObject mo in queryCollection1)
