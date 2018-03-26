@@ -10,7 +10,7 @@ namespace SystemMonitoring
     {
         static void Main()
         {
-
+            ServerConnection.OpenConnection();
             //Bezeichnung für die Variablen
             //ml = metroLabel
 
