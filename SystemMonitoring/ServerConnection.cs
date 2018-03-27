@@ -10,7 +10,7 @@ namespace SystemMonitoring
 {
     class ServerConnection
     {
-        static string Host = "";
+        static string Host = "192.168.100.94";
         static int Port = 9000;
 
         static TcpClient client;
