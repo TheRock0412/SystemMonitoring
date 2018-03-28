@@ -24,16 +24,16 @@ namespace SystemMonitoring.GUI
         {
             InitializeComponent();
 
-            ManagementObjectSearcher OS = new ManagementObjectSearcher("SELECT * CIM_DesktopMonitor");
-            ManagementObjectCollection queryCollection1 = OS.Get();
-            foreach (ManagementObject mo in queryCollection1)
+            ManagementObjectSearcher OS = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor");
+            //ManagementObjectCollection queryCollection = OS.Get();
+            foreach (ManagementObject mo in OS.Get())
             {
-                //BildName = mo["Name"].ToString();
+                BildName = mo["Name"].ToString();
                 //Caption = mo["MonitorManufacturer"].ToString();
                 //Description = mo["PNPDeviceID"].ToString();
                 //DeviceID = mo["Status"].ToString();
                 //MonitorType = mo["DeviceID"].ToString();
-                CreationClassName = mo["Bandwidth"].ToString();
+                //CreationClassName = mo["Bandwidth"].ToString();
                 Console.WriteLine(CreationClassName);
             }
 

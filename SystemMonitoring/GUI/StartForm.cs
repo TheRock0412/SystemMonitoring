@@ -14,23 +14,9 @@ namespace SystemMonitoring.GUI
 {
     public partial class StartForm : Form
     {
-        string OS_Name;
-        string Version;
-        string Hersteller;
-
         public StartForm()
         {
             InitializeComponent();
-
-            ManagementObjectSearcher OS = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-            ManagementObjectCollection queryCollection1 = OS.Get();
-            foreach (ManagementObject mo in queryCollection1)
-            {
-                //OS_Name = mo["csname"].ToString();
-                OS_Name = mo["OSArchitecture"].ToString();
-                Version = mo["version"].ToString();
-                Hersteller = mo["Manufacturer"].ToString();
-            }
 
             metroLabel2.Text = System.Windows.Forms.SystemInformation.ComputerName.ToString();
             metroLabel26.Text = Environment.UserName;
@@ -41,16 +27,8 @@ namespace SystemMonitoring.GUI
             metroLabel10.Text = Hardware.Grafikkarte.GPUName("Win32_VideoController", "Name");
            // metroLabel12.Text = Hardware.Bildschirm.BildschirmName("MSFT_MTLogicalProcessor", "Description");
             metroLabel14.Text = Hardware.Internet.GetNetworkAdapter();
-            metroLabel16.Text = Hardware.Datenträger.DatenträgerName;
+            metroLabel16.Text = Hardware.Grafikkarte.test;
             //metroLabel18.Text = Hardware.Internet.GetGateway();
-            //metroLabel20.Text = OS_Name;
-            //metroLabel22.Text = Hersteller;
-            //metroLabel24.Text = Version;
-        }
-
-        private void StartForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

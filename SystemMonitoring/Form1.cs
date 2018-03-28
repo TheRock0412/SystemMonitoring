@@ -112,6 +112,16 @@ namespace SystemMonitoring
                     f.Show();
                     break;
 
+                case "Software":
+                    f.Dispose();
+                    f = new GUI.FormSoftware();
+                    f.TopLevel = false;
+
+                    this.MainPanel.Controls.Add(f);
+                    f.Dock = DockStyle.Fill;
+                    f.Show();
+                    break;
+
                 default:
                     Console.WriteLine("Kann nicht gefunden werden!");
                     break;

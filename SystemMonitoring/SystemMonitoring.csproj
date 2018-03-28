@@ -117,6 +117,12 @@
     <Compile Include="GUI\FormDatenträger.Designer.cs">
       <DependentUpon>FormDatenträger.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormSoftware.Designer.cs">
+      <DependentUpon>FormSoftware.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hardware\Bildschirm.cs" />
     <Compile Include="Hardware\CPU.cs" />
     <Compile Include="Hardware\Datenträger.cs" />
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDatenträger.resx">
       <DependentUpon>FormDatenträger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormSoftware.resx">
+      <DependentUpon>FormSoftware.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

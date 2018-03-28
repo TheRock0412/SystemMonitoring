@@ -14,11 +14,7 @@ namespace SystemMonitoring
             //Bezeichnung für die Variablen
             //ml = metroLabel
 
-
             //Link für die WIM Bib: msdn.microsoft.com/en-us/library/aa389273.aspx
-
-
-
 
             //Hardware.Grafikkarte.Gr("Win32_VideoController", "Name");
 
@@ -50,8 +46,6 @@ namespace SystemMonitoring
             //Console.WriteLine("SystemName: " + Hardware.Mainboard.SystemName);
             //Console.WriteLine("Version: " + Hardware.Mainboard.Version);
             //Console.ReadLine();
-
-
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

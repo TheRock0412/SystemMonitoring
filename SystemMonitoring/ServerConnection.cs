@@ -22,7 +22,7 @@ namespace SystemMonitoring
 
         public static void OpenConnection()
         {
-            if(client != null)
+            if (client != null)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("----- Es besteht bereits eine Verbindung mit dem Server " + Host + " -----");
@@ -48,13 +48,13 @@ namespace SystemMonitoring
 
         public static void SendData(string data)
         {
-            if(client == null)
+            if (client == null)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("-- Es besteht keine Verbindung zum Server!");
                 return;
             }
-            
+
             //Daten werden gesendet
             NetworkStream nmStream = client.GetStream();
             byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(data);
@@ -72,7 +72,7 @@ namespace SystemMonitoring
 
         public static void CloseConnection()
         {
-            if(client == null)
+            if (client == null)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("----- Es ist keine Verbindung vorhanden -----");
@@ -83,8 +83,8 @@ namespace SystemMonitoring
             {
                 client.Close();
             }
-            catch(Exception ex)
-            {   
+            catch (Exception ex)
+            {
             }
             finally
             {

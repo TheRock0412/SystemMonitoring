@@ -5,12 +5,9 @@ using System.Windows.Forms;
 
 namespace SystemMonitoring.Hardware
 {
-    class Grafikkarte
+    public static class Grafikkarte
     {
-        public Grafikkarte()
-        {
-
-        }
+        public static string test;
 
         public static string GPUName(string name, string syntax)
         {
@@ -22,6 +19,7 @@ namespace SystemMonitoring.Hardware
                 if (gpuName == String.Empty)
                 {
                     gpuName = Convert.ToString(nj[syntax]);
+                    test = Convert.ToString(nj[syntax]);
                 }
                 else
                 {

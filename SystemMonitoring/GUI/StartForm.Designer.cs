@@ -46,12 +46,6 @@
             this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel24 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel26 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
@@ -230,63 +224,6 @@
             this.metroLabel18.TabIndex = 23;
             this.metroLabel18.Text = "metroLabel18";
             // 
-            // metroLabel19
-            // 
-            this.metroLabel19.AutoSize = true;
-            this.metroLabel19.Location = new System.Drawing.Point(325, 302);
-            this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(90, 19);
-            this.metroLabel19.TabIndex = 24;
-            this.metroLabel19.Text = "Betriessystem:";
-            // 
-            // metroLabel20
-            // 
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel20.Location = new System.Drawing.Point(463, 304);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(76, 15);
-            this.metroLabel20.TabIndex = 25;
-            this.metroLabel20.Text = "metroLabel20";
-            // 
-            // metroLabel21
-            // 
-            this.metroLabel21.AutoSize = true;
-            this.metroLabel21.Location = new System.Drawing.Point(325, 332);
-            this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(68, 19);
-            this.metroLabel21.TabIndex = 26;
-            this.metroLabel21.Text = "Hersteller:";
-            // 
-            // metroLabel22
-            // 
-            this.metroLabel22.AutoSize = true;
-            this.metroLabel22.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel22.Location = new System.Drawing.Point(463, 334);
-            this.metroLabel22.Name = "metroLabel22";
-            this.metroLabel22.Size = new System.Drawing.Size(76, 15);
-            this.metroLabel22.TabIndex = 27;
-            this.metroLabel22.Text = "metroLabel22";
-            // 
-            // metroLabel23
-            // 
-            this.metroLabel23.AutoSize = true;
-            this.metroLabel23.Location = new System.Drawing.Point(325, 362);
-            this.metroLabel23.Name = "metroLabel23";
-            this.metroLabel23.Size = new System.Drawing.Size(75, 19);
-            this.metroLabel23.TabIndex = 28;
-            this.metroLabel23.Text = "BS-Version:";
-            // 
-            // metroLabel24
-            // 
-            this.metroLabel24.AutoSize = true;
-            this.metroLabel24.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel24.Location = new System.Drawing.Point(463, 364);
-            this.metroLabel24.Name = "metroLabel24";
-            this.metroLabel24.Size = new System.Drawing.Size(76, 15);
-            this.metroLabel24.TabIndex = 29;
-            this.metroLabel24.Text = "metroLabel24";
-            // 
             // metroLabel25
             // 
             this.metroLabel25.AutoSize = true;
@@ -316,12 +253,6 @@
             this.ClientSize = new System.Drawing.Size(565, 390);
             this.Controls.Add(this.metroLabel26);
             this.Controls.Add(this.metroLabel25);
-            this.Controls.Add(this.metroLabel24);
-            this.Controls.Add(this.metroLabel23);
-            this.Controls.Add(this.metroLabel22);
-            this.Controls.Add(this.metroLabel21);
-            this.Controls.Add(this.metroLabel20);
-            this.Controls.Add(this.metroLabel19);
             this.Controls.Add(this.metroLabel18);
             this.Controls.Add(this.metroLabel17);
             this.Controls.Add(this.metroLabel16);
@@ -343,7 +274,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StartForm";
             this.Text = "StartForm";
-            this.Load += new System.EventHandler(this.StartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,12 +299,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel16;
         private MetroFramework.Controls.MetroLabel metroLabel17;
         private MetroFramework.Controls.MetroLabel metroLabel18;
-        private MetroFramework.Controls.MetroLabel metroLabel19;
-        private MetroFramework.Controls.MetroLabel metroLabel20;
-        private MetroFramework.Controls.MetroLabel metroLabel21;
-        private MetroFramework.Controls.MetroLabel metroLabel22;
-        private MetroFramework.Controls.MetroLabel metroLabel23;
-        private MetroFramework.Controls.MetroLabel metroLabel24;
         private MetroFramework.Controls.MetroLabel metroLabel25;
         private MetroFramework.Controls.MetroLabel metroLabel26;
     }

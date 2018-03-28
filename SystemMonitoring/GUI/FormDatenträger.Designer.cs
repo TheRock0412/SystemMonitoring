@@ -410,7 +410,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDatenträger";
             this.Text = "FormDatenträger";
-            this.Load += new System.EventHandler(this.FormDatenträger_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
