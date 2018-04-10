@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Arbeitsspeicher");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Bildschirm");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("CPU");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Datenträger");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Grafikkarte");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Internet");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Mainboard");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("CPU");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Datenträger");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grafikkarte");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Internet");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Mainboard");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Monitor");
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Hardware", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
@@ -54,18 +54,18 @@
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "Arbeitsspeicher";
             treeNode1.Text = "Arbeitsspeicher";
-            treeNode2.Name = "Bildschirm";
-            treeNode2.Text = "Bildschirm";
-            treeNode3.Name = "CPU";
-            treeNode3.Text = "CPU";
-            treeNode4.Name = "Datenträger";
-            treeNode4.Text = "Datenträger";
-            treeNode5.Name = "Grafikkarte";
-            treeNode5.Text = "Grafikkarte";
-            treeNode6.Name = "Internet";
-            treeNode6.Text = "Internet";
-            treeNode7.Name = "Mainboard";
-            treeNode7.Text = "Mainboard";
+            treeNode2.Name = "CPU";
+            treeNode2.Text = "CPU";
+            treeNode3.Name = "Datenträger";
+            treeNode3.Text = "Datenträger";
+            treeNode4.Name = "Grafikkarte";
+            treeNode4.Text = "Grafikkarte";
+            treeNode5.Name = "Internet";
+            treeNode5.Text = "Internet";
+            treeNode6.Name = "Mainboard";
+            treeNode6.Text = "Mainboard";
+            treeNode7.Name = "Monitor";
+            treeNode7.Text = "Monitor";
             treeNode8.Name = "treeview1";
             treeNode8.Text = "Hardware";
             treeNode9.Name = "Software";

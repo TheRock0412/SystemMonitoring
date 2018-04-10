@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
@@ -7,21 +8,32 @@ using System.Threading.Tasks;
 
 namespace SystemMonitoring.Hardware
 {
-    public static class Datenträger
+    class Datenträger
     {
-        //public static int [] AuswahlDatenträger;
-        //public static string Datenträgername;
+        public static ArrayList AuswahlDatenträger = new ArrayList();
+        public static string Datenträgername;
 
-        //public static void Datenträger()
-        //{
-        //    ManagementObjectSearcher ds = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+        public static ManagementObjectSearcher mos;
+        
+        public Datenträger()
+        {
 
-        //    foreach (ManagementObject d in ds.Get())
-        //    {
-        //        AuswahlDatenträger.Items.Add(d["Model"].ToString());
-        //    }
-        //    comboBoxDisks.SelectedIndex = 0;
-        //}
+        }
+
+        public static void AlleDatenträger()
+        {
+            mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+
+            foreach (ManagementObject d in mos.Get())
+            {
+                AuswahlDatenträger.Add(d["Model"].ToString());
+            }
+            //AuswahlDatenträger.s
+            Datenträgername = AuswahlDatenträger[0].ToString();
+            Console.WriteLine(AuswahlDatenträger[0].ToString());
+            Console.WriteLine(AuswahlDatenträger[1].ToString());
+        }
+
 
         //private void comboBoxDisks_SelectionChanged(object sender, EventArgs e)
         //{

@@ -30,22 +30,20 @@
         {
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.mlArbeitsspeicher = new MetroFramework.Controls.MetroLabel();
+            this.mlArbeitsspeichername_Value = new MetroFramework.Controls.MetroLabel();
+            this.mlMonitor = new MetroFramework.Controls.MetroLabel();
+            this.mlMonitor_Value = new MetroFramework.Controls.MetroLabel();
+            this.mlCPU = new MetroFramework.Controls.MetroLabel();
+            this.mlCPU_Value = new MetroFramework.Controls.MetroLabel();
+            this.mlDatenträger = new MetroFramework.Controls.MetroLabel();
+            this.mlDatenräger_Value = new MetroFramework.Controls.MetroLabel();
+            this.mlGrafikkarte = new MetroFramework.Controls.MetroLabel();
+            this.mlGrafikkarte_Value = new MetroFramework.Controls.MetroLabel();
+            this.mlInternet = new MetroFramework.Controls.MetroLabel();
+            this.mlInternet_Value = new MetroFramework.Controls.MetroLabel();
+            this.mlMainboard = new MetroFramework.Controls.MetroLabel();
+            this.mlMainboard_Value = new MetroFramework.Controls.MetroLabel();
             this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel26 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
@@ -72,157 +70,138 @@
             this.metroLabel1.TabIndex = 6;
             this.metroLabel1.Text = "Computername";
             // 
-            // metroLabel3
+            // mlArbeitsspeicher
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(12, 85);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(77, 19);
-            this.metroLabel3.TabIndex = 8;
-            this.metroLabel3.Text = "Mainboard:";
+            this.mlArbeitsspeicher.AutoSize = true;
+            this.mlArbeitsspeicher.Location = new System.Drawing.Point(12, 85);
+            this.mlArbeitsspeicher.Name = "mlArbeitsspeicher";
+            this.mlArbeitsspeicher.Size = new System.Drawing.Size(102, 19);
+            this.mlArbeitsspeicher.TabIndex = 8;
+            this.mlArbeitsspeicher.Text = "Arbeitsspeicher:";
             // 
-            // metroLabel4
+            // mlArbeitsspeichername_Value
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel4.Location = new System.Drawing.Point(150, 87);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(70, 15);
-            this.metroLabel4.TabIndex = 9;
-            this.metroLabel4.Text = "metroLabel4";
+            this.mlArbeitsspeichername_Value.AutoSize = true;
+            this.mlArbeitsspeichername_Value.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.mlArbeitsspeichername_Value.Location = new System.Drawing.Point(150, 87);
+            this.mlArbeitsspeichername_Value.Name = "mlArbeitsspeichername_Value";
+            this.mlArbeitsspeichername_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlArbeitsspeichername_Value.TabIndex = 9;
+            this.mlArbeitsspeichername_Value.Text = "metroLabel4";
             // 
-            // metroLabel5
+            // mlMonitor
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(12, 115);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(38, 19);
-            this.metroLabel5.TabIndex = 10;
-            this.metroLabel5.Text = "CPU:";
+            this.mlMonitor.AutoSize = true;
+            this.mlMonitor.Location = new System.Drawing.Point(12, 115);
+            this.mlMonitor.Name = "mlMonitor";
+            this.mlMonitor.Size = new System.Drawing.Size(60, 19);
+            this.mlMonitor.TabIndex = 10;
+            this.mlMonitor.Text = "Monitor:";
             // 
-            // metroLabel6
+            // mlMonitor_Value
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel6.Location = new System.Drawing.Point(150, 117);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(70, 15);
-            this.metroLabel6.TabIndex = 11;
-            this.metroLabel6.Text = "metroLabel6";
+            this.mlMonitor_Value.AutoSize = true;
+            this.mlMonitor_Value.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.mlMonitor_Value.Location = new System.Drawing.Point(150, 117);
+            this.mlMonitor_Value.Name = "mlMonitor_Value";
+            this.mlMonitor_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlMonitor_Value.TabIndex = 11;
+            this.mlMonitor_Value.Text = "metroLabel6";
             // 
-            // metroLabel7
+            // mlCPU
             // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(12, 145);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(102, 19);
-            this.metroLabel7.TabIndex = 12;
-            this.metroLabel7.Text = "Arbeitsspeicher:";
+            this.mlCPU.AutoSize = true;
+            this.mlCPU.Location = new System.Drawing.Point(12, 145);
+            this.mlCPU.Name = "mlCPU";
+            this.mlCPU.Size = new System.Drawing.Size(38, 19);
+            this.mlCPU.TabIndex = 12;
+            this.mlCPU.Text = "CPU:";
             // 
-            // metroLabel8
+            // mlCPU_Value
             // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel8.Location = new System.Drawing.Point(150, 147);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(70, 15);
-            this.metroLabel8.TabIndex = 13;
-            this.metroLabel8.Text = "metroLabel8";
+            this.mlCPU_Value.AutoSize = true;
+            this.mlCPU_Value.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.mlCPU_Value.Location = new System.Drawing.Point(150, 147);
+            this.mlCPU_Value.Name = "mlCPU_Value";
+            this.mlCPU_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlCPU_Value.TabIndex = 13;
+            this.mlCPU_Value.Text = "metroLabel8";
             // 
-            // metroLabel9
+            // mlDatenträger
             // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(12, 175);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(76, 19);
-            this.metroLabel9.TabIndex = 14;
-            this.metroLabel9.Text = "Grafikkarte:";
+            this.mlDatenträger.AutoSize = true;
+            this.mlDatenträger.Location = new System.Drawing.Point(12, 175);
+            this.mlDatenträger.Name = "mlDatenträger";
+            this.mlDatenträger.Size = new System.Drawing.Size(83, 19);
+            this.mlDatenträger.TabIndex = 14;
+            this.mlDatenträger.Text = "Datenträger:";
             // 
-            // metroLabel10
+            // mlDatenräger_Value
             // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel10.Location = new System.Drawing.Point(150, 177);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(74, 15);
-            this.metroLabel10.TabIndex = 15;
-            this.metroLabel10.Text = "metroLabel10";
+            this.mlDatenräger_Value.AutoSize = true;
+            this.mlDatenräger_Value.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.mlDatenräger_Value.Location = new System.Drawing.Point(150, 177);
+            this.mlDatenräger_Value.Name = "mlDatenräger_Value";
+            this.mlDatenräger_Value.Size = new System.Drawing.Size(74, 15);
+            this.mlDatenräger_Value.TabIndex = 15;
+            this.mlDatenräger_Value.Text = "metroLabel10";
             // 
-            // metroLabel11
+            // mlGrafikkarte
             // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(12, 205);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(72, 19);
-            this.metroLabel11.TabIndex = 16;
-            this.metroLabel11.Text = "Bildschirm:";
+            this.mlGrafikkarte.AutoSize = true;
+            this.mlGrafikkarte.Location = new System.Drawing.Point(12, 205);
+            this.mlGrafikkarte.Name = "mlGrafikkarte";
+            this.mlGrafikkarte.Size = new System.Drawing.Size(76, 19);
+            this.mlGrafikkarte.TabIndex = 16;
+            this.mlGrafikkarte.Text = "Grafikkarte:";
             // 
-            // metroLabel12
+            // mlGrafikkarte_Value
             // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel12.Location = new System.Drawing.Point(150, 207);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(74, 15);
-            this.metroLabel12.TabIndex = 17;
-            this.metroLabel12.Text = "metroLabel12";
+            this.mlGrafikkarte_Value.AutoSize = true;
+            this.mlGrafikkarte_Value.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.mlGrafikkarte_Value.Location = new System.Drawing.Point(150, 207);
+            this.mlGrafikkarte_Value.Name = "mlGrafikkarte_Value";
+            this.mlGrafikkarte_Value.Size = new System.Drawing.Size(74, 15);
+            this.mlGrafikkarte_Value.TabIndex = 17;
+            this.mlGrafikkarte_Value.Text = "metroLabel12";
             // 
-            // metroLabel13
+            // mlInternet
             // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(12, 235);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(120, 19);
-            this.metroLabel13.TabIndex = 18;
-            this.metroLabel13.Text = "Netzwerk-Adapter:";
+            this.mlInternet.AutoSize = true;
+            this.mlInternet.Location = new System.Drawing.Point(12, 235);
+            this.mlInternet.Name = "mlInternet";
+            this.mlInternet.Size = new System.Drawing.Size(120, 19);
+            this.mlInternet.TabIndex = 18;
+            this.mlInternet.Text = "Netzwerk-Adapter:";
             // 
-            // metroLabel14
+            // mlInternet_Value
             // 
-            this.metroLabel14.AutoSize = true;
-            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel14.Location = new System.Drawing.Point(150, 237);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(74, 15);
-            this.metroLabel14.TabIndex = 19;
-            this.metroLabel14.Text = "metroLabel14";
+            this.mlInternet_Value.AutoSize = true;
+            this.mlInternet_Value.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.mlInternet_Value.Location = new System.Drawing.Point(150, 237);
+            this.mlInternet_Value.Name = "mlInternet_Value";
+            this.mlInternet_Value.Size = new System.Drawing.Size(74, 15);
+            this.mlInternet_Value.TabIndex = 19;
+            this.mlInternet_Value.Text = "metroLabel14";
             // 
-            // metroLabel15
+            // mlMainboard
             // 
-            this.metroLabel15.AutoSize = true;
-            this.metroLabel15.Location = new System.Drawing.Point(12, 265);
-            this.metroLabel15.Name = "metroLabel15";
-            this.metroLabel15.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel15.TabIndex = 20;
-            this.metroLabel15.Text = "Datenträger:";
+            this.mlMainboard.AutoSize = true;
+            this.mlMainboard.Location = new System.Drawing.Point(12, 265);
+            this.mlMainboard.Name = "mlMainboard";
+            this.mlMainboard.Size = new System.Drawing.Size(77, 19);
+            this.mlMainboard.TabIndex = 20;
+            this.mlMainboard.Text = "Mainboard:";
             // 
-            // metroLabel16
+            // mlMainboard_Value
             // 
-            this.metroLabel16.AutoSize = true;
-            this.metroLabel16.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel16.Location = new System.Drawing.Point(150, 267);
-            this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(74, 15);
-            this.metroLabel16.TabIndex = 21;
-            this.metroLabel16.Text = "metroLabel16";
-            // 
-            // metroLabel17
-            // 
-            this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(12, 304);
-            this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(61, 19);
-            this.metroLabel17.TabIndex = 22;
-            this.metroLabel17.Text = "Gateway:";
-            // 
-            // metroLabel18
-            // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel18.Location = new System.Drawing.Point(146, 308);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(74, 15);
-            this.metroLabel18.TabIndex = 23;
-            this.metroLabel18.Text = "metroLabel18";
+            this.mlMainboard_Value.AutoSize = true;
+            this.mlMainboard_Value.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.mlMainboard_Value.Location = new System.Drawing.Point(150, 267);
+            this.mlMainboard_Value.Name = "mlMainboard_Value";
+            this.mlMainboard_Value.Size = new System.Drawing.Size(74, 15);
+            this.mlMainboard_Value.TabIndex = 21;
+            this.mlMainboard_Value.Text = "metroLabel16";
             // 
             // metroLabel25
             // 
@@ -253,22 +232,20 @@
             this.ClientSize = new System.Drawing.Size(565, 390);
             this.Controls.Add(this.metroLabel26);
             this.Controls.Add(this.metroLabel25);
-            this.Controls.Add(this.metroLabel18);
-            this.Controls.Add(this.metroLabel17);
-            this.Controls.Add(this.metroLabel16);
-            this.Controls.Add(this.metroLabel15);
-            this.Controls.Add(this.metroLabel14);
-            this.Controls.Add(this.metroLabel13);
-            this.Controls.Add(this.metroLabel12);
-            this.Controls.Add(this.metroLabel11);
-            this.Controls.Add(this.metroLabel10);
-            this.Controls.Add(this.metroLabel9);
-            this.Controls.Add(this.metroLabel8);
-            this.Controls.Add(this.metroLabel7);
-            this.Controls.Add(this.metroLabel6);
-            this.Controls.Add(this.metroLabel5);
-            this.Controls.Add(this.metroLabel4);
-            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.mlMainboard_Value);
+            this.Controls.Add(this.mlMainboard);
+            this.Controls.Add(this.mlInternet_Value);
+            this.Controls.Add(this.mlInternet);
+            this.Controls.Add(this.mlGrafikkarte_Value);
+            this.Controls.Add(this.mlGrafikkarte);
+            this.Controls.Add(this.mlDatenräger_Value);
+            this.Controls.Add(this.mlDatenträger);
+            this.Controls.Add(this.mlCPU_Value);
+            this.Controls.Add(this.mlCPU);
+            this.Controls.Add(this.mlMonitor_Value);
+            this.Controls.Add(this.mlMonitor);
+            this.Controls.Add(this.mlArbeitsspeichername_Value);
+            this.Controls.Add(this.mlArbeitsspeicher);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -283,22 +260,20 @@
 
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroLabel metroLabel9;
-        private MetroFramework.Controls.MetroLabel metroLabel10;
-        private MetroFramework.Controls.MetroLabel metroLabel11;
-        private MetroFramework.Controls.MetroLabel metroLabel12;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
-        private MetroFramework.Controls.MetroLabel metroLabel14;
-        private MetroFramework.Controls.MetroLabel metroLabel15;
-        private MetroFramework.Controls.MetroLabel metroLabel16;
-        private MetroFramework.Controls.MetroLabel metroLabel17;
-        private MetroFramework.Controls.MetroLabel metroLabel18;
+        private MetroFramework.Controls.MetroLabel mlArbeitsspeicher;
+        private MetroFramework.Controls.MetroLabel mlArbeitsspeichername_Value;
+        private MetroFramework.Controls.MetroLabel mlMonitor;
+        private MetroFramework.Controls.MetroLabel mlMonitor_Value;
+        private MetroFramework.Controls.MetroLabel mlCPU;
+        private MetroFramework.Controls.MetroLabel mlCPU_Value;
+        private MetroFramework.Controls.MetroLabel mlDatenträger;
+        private MetroFramework.Controls.MetroLabel mlDatenräger_Value;
+        private MetroFramework.Controls.MetroLabel mlGrafikkarte;
+        private MetroFramework.Controls.MetroLabel mlGrafikkarte_Value;
+        private MetroFramework.Controls.MetroLabel mlInternet;
+        private MetroFramework.Controls.MetroLabel mlInternet_Value;
+        private MetroFramework.Controls.MetroLabel mlMainboard;
+        private MetroFramework.Controls.MetroLabel mlMainboard_Value;
         private MetroFramework.Controls.MetroLabel metroLabel25;
         private MetroFramework.Controls.MetroLabel metroLabel26;
     }

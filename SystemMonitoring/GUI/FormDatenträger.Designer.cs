@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.mlFormDatenträger = new MetroFramework.Controls.MetroLabel();
-            this.comboBoxDisks = new MetroFramework.Controls.MetroComboBox();
+            this.combox_Datenträger = new MetroFramework.Controls.MetroComboBox();
             this.mlInterfaceType_Value = new MetroFramework.Controls.MetroLabel();
             this.mlModel = new MetroFramework.Controls.MetroLabel();
             this.mlModel_Value = new MetroFramework.Controls.MetroLabel();
@@ -72,17 +72,17 @@
             this.mlFormDatenträger.TabIndex = 0;
             this.mlFormDatenträger.Text = "Datenträger";
             // 
-            // comboBoxDisks
+            // combox_Datenträger
             // 
-            this.comboBoxDisks.FormattingEnabled = true;
-            this.comboBoxDisks.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBoxDisks.ItemHeight = 23;
-            this.comboBoxDisks.Location = new System.Drawing.Point(270, 17);
-            this.comboBoxDisks.Name = "comboBoxDisks";
-            this.comboBoxDisks.Size = new System.Drawing.Size(249, 29);
-            this.comboBoxDisks.TabIndex = 2;
-            this.comboBoxDisks.UseSelectable = true;
-            this.comboBoxDisks.Click += new System.EventHandler(this.comboBoxDisks_SelectionChanged);
+            this.combox_Datenträger.FormattingEnabled = true;
+            this.combox_Datenträger.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.combox_Datenträger.ItemHeight = 23;
+            this.combox_Datenträger.Location = new System.Drawing.Point(270, 17);
+            this.combox_Datenträger.Name = "combox_Datenträger";
+            this.combox_Datenträger.Size = new System.Drawing.Size(249, 29);
+            this.combox_Datenträger.TabIndex = 2;
+            this.combox_Datenträger.UseSelectable = true;
+            this.combox_Datenträger.Click += new System.EventHandler(this.combox_Datenträger_SelectionChanged);
             // 
             // mlInterfaceType_Value
             // 
@@ -405,11 +405,12 @@
             this.Controls.Add(this.mlModel_Value);
             this.Controls.Add(this.mlModel);
             this.Controls.Add(this.mlInterfaceType_Value);
-            this.Controls.Add(this.comboBoxDisks);
+            this.Controls.Add(this.combox_Datenträger);
             this.Controls.Add(this.mlFormDatenträger);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDatenträger";
             this.Text = "FormDatenträger";
+            this.Load += new System.EventHandler(this.FormDatenträger_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,7 +419,7 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel mlFormDatenträger;
-        private MetroFramework.Controls.MetroComboBox comboBoxDisks;
+        private MetroFramework.Controls.MetroComboBox combox_Datenträger;
         private MetroFramework.Controls.MetroLabel mlInterfaceType_Value;
         private MetroFramework.Controls.MetroLabel mlModel;
         private MetroFramework.Controls.MetroLabel mlModel_Value;
