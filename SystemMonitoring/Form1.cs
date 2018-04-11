@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,7 @@ namespace SystemMonitoring
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         private Form f;
+        private ArrayList auswahldatenträger;
 
         public Form1()
         {
@@ -84,7 +86,7 @@ namespace SystemMonitoring
 
                 case "Datenträger":
                     f.Dispose();
-                    f = new GUI.FormDatenträger();
+                    f = new GUI.FormDatenträger(auswahldatenträger);
                     f.TopLevel = false;
 
                     this.MainPanel.Controls.Add(f);

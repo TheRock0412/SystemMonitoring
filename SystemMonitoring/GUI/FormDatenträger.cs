@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Management;
 using System.Windows.Forms;
 
@@ -7,29 +8,56 @@ namespace SystemMonitoring.GUI
 {
     public partial class FormDatenträger : Form
     {
-        //public int combo_Datenträger;
+        ArrayList Auswahldatenträger;
 
-        public FormDatenträger()
+        public FormDatenträger(ArrayList auswahldatenträger)
         {
             InitializeComponent();
-            Hardware.Datenträger.AlleDatenträger();
+
+            this.Auswahldatenträger = auswahldatenträger;
+        //}
+
+
+        //public void Datenträger_anzeigen(/*ArrayList auswahldatenträger*/)
+        //{
+            //Die Abfrage funktioniert aufjedenfall, jetzt muss nur noch die ArrayList richtig übergeben werden
+            for (int i = 0; i < Auswahldatenträger.Count; i++)
+            {
+                combox_Datenträger.Items.Add(Auswahldatenträger[i].ToString());
+            }
+            //Gibt das erste Object der Liste in der ComboBox an --> noch erledigen gibt gleich die Werte für das erste Object an
+            combox_Datenträger.SelectedIndex = 0;
         }
 
-        private void FormDatenträger_Load(object sender, EventArgs e)
+        public void FormDatenträger_Load(object sender, EventArgs e)
         {
-            ManagementObjectSearcher ds = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+            //Auswahldatenträger = auswahldatenträger;
 
-            foreach (ManagementObject d in ds.Get())
-            {
-                combox_Datenträger.Items.Add(d["Model"].ToString());
-            }
-            combox_Datenträger.SelectedIndex = 0;
+            ////Die Abfrage funktioniert aufjedenfall, jetzt muss nur noch die ArrayList richtig übergeben werden
+            //for (int i = 0; i < Auswahldatenträger.Count; i++)
+            //{
+            //    combox_Datenträger.Items.Add(Auswahldatenträger[i].ToString());
+            //}
+            ////Gibt das erste Object der Liste in der ComboBox an --> noch erledigen gibt gleich die Werte für das erste Object an
+            //combox_Datenträger.SelectedIndex = 0;
+
+
+
+
+            //ManagementObjectSearcher ds = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+
+            //foreach (ManagementObject d in ds.Get())
+            //{
+            //    combox_Datenträger.Items.Add(d["Model"].ToString());
+            //}
+            //combox_Datenträger.SelectedIndex = 0;
+
         }
 
         private void combox_Datenträger_SelectionChanged(object sender, EventArgs e)
         {
-            ManagementObjectSearcher mosDisks = new ManagementObjectSearcher(
-                "SELECT * FROM Win32_DiskDrive WHERE Model = '" + Hardware.Datenträger.Datenträgername + "'");
+            //ManagementObjectSearcher mosDisks = new ManagementObjectSearcher(
+            //    "SELECT * FROM Win32_DiskDrive WHERE Model = '" + Hardware.Datenträger.Datenträgername + "'");
 
             //foreach (ManagementObject disk in mosDisks.Get())
             //{

@@ -27,7 +27,7 @@ namespace SystemMonitoring.GUI
 
             for (int i = 0; i <= 4; i++)
             {
-                Console.WriteLine(Hardware.Datenträger.AuswahlDatenträger[i].ToString());
+                //Console.WriteLine(Hardware.Datenträger.AuswahlDatenträger[i].ToString());
             }
             //{
                 

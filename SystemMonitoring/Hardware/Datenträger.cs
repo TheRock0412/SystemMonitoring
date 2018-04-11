@@ -1,39 +1,41 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Management;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
+using SystemMonitoring.GUI;
 
 namespace SystemMonitoring.Hardware
 {
     class Datenträger
     {
-        public static ArrayList AuswahlDatenträger = new ArrayList();
-        public static string Datenträgername;
+        public ArrayList Auswahldatenträger { get; private set; }
+        // public static string Datenträgername;
 
         public static ManagementObjectSearcher mos;
-        
+
         public Datenträger()
         {
-
-        }
-
-        public static void AlleDatenträger()
-        {
+            ArrayList Auswahldatenträger = new ArrayList(); // = new ArrayList();
             mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
 
             foreach (ManagementObject d in mos.Get())
             {
-                AuswahlDatenträger.Add(d["Model"].ToString());
+                Auswahldatenträger.Add(d["Model"].ToString());
             }
-            //AuswahlDatenträger.s
-            Datenträgername = AuswahlDatenträger[0].ToString();
-            Console.WriteLine(AuswahlDatenträger[0].ToString());
-            Console.WriteLine(AuswahlDatenträger[1].ToString());
+            FormDatenträger datenträger = new FormDatenträger(Auswahldatenträger);
         }
 
+        public void AlleDatenträger()
+        {
+            //ArrayList Auswahldatenträger = new ArrayList(); // = new ArrayList();
+            //mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+
+            //foreach (ManagementObject d in mos.Get())
+            //{
+            //    Auswahldatenträger.Add(d["Model"].ToString());
+            //}
+            //FormDatenträger datenträger = new FormDatenträger(Auswahldatenträger);
+        }
 
         //private void comboBoxDisks_SelectionChanged(object sender, EventArgs e)
         //{

@@ -3,6 +3,7 @@ using System.Management;
 using System.Management.Instrumentation;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using SystemMonitoring.Hardware;
 
 namespace SystemMonitoring
 {
@@ -11,6 +12,9 @@ namespace SystemMonitoring
         static void Main()
         {
             ServerConnection.OpenConnection();
+
+            
+
             //Bezeichnung für die Variablen
             //ml = metroLabel
 
@@ -50,6 +54,9 @@ namespace SystemMonitoring
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+
+            Datenträger datenträger = new Datenträger();
         }
     }
 }
