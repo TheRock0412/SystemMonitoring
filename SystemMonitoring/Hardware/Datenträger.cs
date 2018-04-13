@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Management;
 using System.Windows.Forms;
 using SystemMonitoring.GUI;
@@ -8,19 +9,25 @@ namespace SystemMonitoring.Hardware
 {
     class Datenträger
     {
-        public ArrayList Auswahldatenträger { get; private set; }
-        // public static string Datenträgername;
+        List<string> Auswahldatenträger;
 
-        public static ManagementObjectSearcher mos;
+        ManagementObjectSearcher mos;
 
         public Datenträger()
         {
-            ArrayList Auswahldatenträger = new ArrayList(); // = new ArrayList();
             mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+            Auswahldatenträger = new List<string>();
 
             foreach (ManagementObject d in mos.Get())
             {
-                Auswahldatenträger.Add(d["Model"].ToString());
+
+                
+
+                //for (int i = 0; i < Auswahldatenträger..Length; i++)
+                //{
+                    Auswahldatenträger.Add(d["Model"].ToString());
+                //}
+                //Auswahldatenträger[1] = "asdfasd";
             }
             FormDatenträger datenträger = new FormDatenträger(Auswahldatenträger);
         }

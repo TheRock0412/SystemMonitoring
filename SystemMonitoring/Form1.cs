@@ -19,7 +19,7 @@ namespace SystemMonitoring
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         private Form f;
-        private ArrayList auswahldatenträger;
+        private List<string> auswahldatenträger;
 
         public Form1()
         {

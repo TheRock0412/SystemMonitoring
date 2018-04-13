@@ -11,7 +11,7 @@ namespace SystemMonitoring
     {
         static void Main()
         {
-            ServerConnection.OpenConnection();
+            //ServerConnection.OpenConnection();
 
             
 
@@ -53,10 +53,13 @@ namespace SystemMonitoring
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Datenträger datenträger = new Datenträger();
+
             Application.Run(new Form1());
 
 
-            Datenträger datenträger = new Datenträger();
+            
         }
     }
 }

@@ -11,7 +11,7 @@ namespace SystemMonitoring.Hardware
 
         public static string GPUName(string name, string syntax)
         {
-            String gpuName = string.Empty; ;
+            String gpuName = string.Empty;
 
             ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + name);
             foreach (ManagementObject nj in mos.Get())

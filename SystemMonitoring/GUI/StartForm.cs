@@ -24,16 +24,6 @@ namespace SystemMonitoring.GUI
             mlArbeitsspeichername_Value.Text = "Name";//Hardware.RAM.RAMName;
             mlMonitor_Value.Text = "Name"; //Hardware.Bildschirm.BildschirmName("MSFT_MTLogicalProcessor", "Description");
             mlCPU_Value.Text = Hardware.CPU.CPUName;
-
-            for (int i = 0; i <= 4; i++)
-            {
-                //Console.WriteLine(Hardware.Datenträger.AuswahlDatenträger[i].ToString());
-            }
-            //{
-                
-            //}
-
-
             mlDatenräger_Value.Text = "Name";
             mlGrafikkarte_Value.Text = Hardware.Grafikkarte.GPUName("Win32_VideoController", "Name");
             mlInternet_Value.Text = Hardware.Internet.GetNetworkAdapter();

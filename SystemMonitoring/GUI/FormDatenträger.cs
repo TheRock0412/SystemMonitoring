@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Management;
 using System.Windows.Forms;
 
@@ -8,18 +9,23 @@ namespace SystemMonitoring.GUI
 {
     public partial class FormDatenträger : Form
     {
-        ArrayList Auswahldatenträger;
+        List<string> Auswahldatenträger;
 
-        public FormDatenträger(ArrayList auswahldatenträger)
+        public FormDatenträger(List<string> auswahldatenträger)
         {
             InitializeComponent();
 
+            Auswahldatenträger = new List<string>();
+            
+           // Console.WriteLine("Länge des Übergebenen Arrays: " + auswahldatenträger[0].ToString());
+
             this.Auswahldatenträger = auswahldatenträger;
-        //}
 
+            ////}
+            ////Console.WriteLine("Auswahldatenträger 1: " + Auswahldatenträger[0].ToString());
 
-        //public void Datenträger_anzeigen(/*ArrayList auswahldatenträger*/)
-        //{
+            ////public Datenträger_anzeigen(Auswahldatenträger)
+            ////{
             //Die Abfrage funktioniert aufjedenfall, jetzt muss nur noch die ArrayList richtig übergeben werden
             for (int i = 0; i < Auswahldatenträger.Count; i++)
             {
