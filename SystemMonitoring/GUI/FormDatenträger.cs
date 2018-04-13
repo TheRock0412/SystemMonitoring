@@ -9,42 +9,61 @@ namespace SystemMonitoring.GUI
 {
     public partial class FormDatenträger : Form
     {
-        List<string> Auswahldatenträger;
+        public List<string> Auswahldatenträger;
 
         public FormDatenträger(List<string> auswahldatenträger)
         {
             InitializeComponent();
 
             Auswahldatenträger = new List<string>();
+
+            Auswahldatenträger = auswahldatenträger;
+
+            //if (auswahldatenträger != null)
+            //{
+
+            //    /*for (int i = 0; i < auswahldatenträger.Count; i++)
+            //    {
+            //        Console.WriteLine("Länge des Übergebenen Arrays: " + auswahldatenträger[i].ToString());
+
+            //    }*/
+
+            //    //this.Auswahldatenträger = auswahldatenträger;
+
+            //    ////}
+            //    ////Console.WriteLine("Auswahldatenträger 1: " + Auswahldatenträger[0].ToString());
+
+            //    ////public Datenträger_anzeigen(Auswahldatenträger)
+            //    ////{
+            //    //Die Abfrage funktioniert aufjedenfall, jetzt muss nur noch die ArrayList richtig übergeben werden
+            //    for (int i = 0; i < auswahldatenträger.Count; i++)
+            //{
+            //    Console.WriteLine("Länge des Übergebenen Arrays: " + auswahldatenträger[i]);
+            //    combox_Datenträger.Items.Add(auswahldatenträger[i].ToString());
+            //}
+
+            //combox_Datenträger.Items.Add(Auswahldatenträger[0]);
+
+                //Gibt das erste Object der Liste in der ComboBox an --> noch erledigen gibt gleich die Werte für das erste Object an
+                //combox_Datenträger.SelectedIndex = 0;
             
-           // Console.WriteLine("Länge des Übergebenen Arrays: " + auswahldatenträger[0].ToString());
+        }
 
-            this.Auswahldatenträger = auswahldatenträger;
+        public void FormDatenträger_Load(object sender, EventArgs e)
+        {
+            Auswahldatenträger = new List<string>();
+            Hardware.Datenträger.AlleDatenträger(Auswahldatenträger);
 
-            ////}
-            ////Console.WriteLine("Auswahldatenträger 1: " + Auswahldatenträger[0].ToString());
+            
+            
+            Console.WriteLine("FormDatenträger_Load: " + Auswahldatenträger[1].ToString());
 
-            ////public Datenträger_anzeigen(Auswahldatenträger)
-            ////{
             //Die Abfrage funktioniert aufjedenfall, jetzt muss nur noch die ArrayList richtig übergeben werden
             for (int i = 0; i < Auswahldatenträger.Count; i++)
             {
                 combox_Datenträger.Items.Add(Auswahldatenträger[i].ToString());
             }
             //Gibt das erste Object der Liste in der ComboBox an --> noch erledigen gibt gleich die Werte für das erste Object an
-            combox_Datenträger.SelectedIndex = 0;
-        }
-
-        public void FormDatenträger_Load(object sender, EventArgs e)
-        {
-            //Auswahldatenträger = auswahldatenträger;
-
-            ////Die Abfrage funktioniert aufjedenfall, jetzt muss nur noch die ArrayList richtig übergeben werden
-            //for (int i = 0; i < Auswahldatenträger.Count; i++)
-            //{
-            //    combox_Datenträger.Items.Add(Auswahldatenträger[i].ToString());
-            //}
-            ////Gibt das erste Object der Liste in der ComboBox an --> noch erledigen gibt gleich die Werte für das erste Object an
             //combox_Datenträger.SelectedIndex = 0;
 
 
@@ -85,7 +104,7 @@ namespace SystemMonitoring.GUI
             //    mlSectorsPerTrack_Value.Text = disk["SectorsPerTrack"].ToString();
             //    mlTracksPerCylinder_Value.Text = disk["TracksPerCylinder"].ToString();
 
-                //mlModel_Value.Text = Hardware.Datenträger.Datenträgername;
+            //mlModel_Value.Text = Hardware.Datenträger.Datenträgername;
             //}
         }
 

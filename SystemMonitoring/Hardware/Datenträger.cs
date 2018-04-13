@@ -9,39 +9,39 @@ namespace SystemMonitoring.Hardware
 {
     class Datenträger
     {
-        List<string> Auswahldatenträger;
+        //List<string> Auswahldatenträger;
 
         ManagementObjectSearcher mos;
 
         public Datenträger()
         {
-            mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
-            Auswahldatenträger = new List<string>();
-
-            foreach (ManagementObject d in mos.Get())
-            {
-
-                
-
-                //for (int i = 0; i < Auswahldatenträger..Length; i++)
-                //{
-                    Auswahldatenträger.Add(d["Model"].ToString());
-                //}
-                //Auswahldatenträger[1] = "asdfasd";
-            }
-            FormDatenträger datenträger = new FormDatenträger(Auswahldatenträger);
-        }
-
-        public void AlleDatenträger()
-        {
-            //ArrayList Auswahldatenträger = new ArrayList(); // = new ArrayList();
             //mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+            //Auswahldatenträger = new List<string>();
 
             //foreach (ManagementObject d in mos.Get())
             //{
             //    Auswahldatenträger.Add(d["Model"].ToString());
             //}
+
+            //for (int i = 0; i < Auswahldatenträger.Count; i++)
+            //{
+            //    //Console.WriteLine("Was steht alles im in der Liste: " + Auswahldatenträger[i].ToString());
+            //}
             //FormDatenträger datenträger = new FormDatenträger(Auswahldatenträger);
+        }
+
+        public static void AlleDatenträger(List<string> alleDatenträger)
+        {
+            List<string> Auswahldatenträger = new List<string>();
+            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+
+            foreach (ManagementObject d in mos.Get())
+            {
+                Auswahldatenträger.Add(d["Model"].ToString());
+            }
+            //FormDatenträger datenträger = new FormDatenträger(Auswahldatenträger);
+            alleDatenträger = Auswahldatenträger;
+            Console.WriteLine("Test: " + alleDatenträger[1].ToString());
         }
 
         //private void comboBoxDisks_SelectionChanged(object sender, EventArgs e)
