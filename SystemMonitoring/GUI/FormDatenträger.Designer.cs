@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mlFormDatenträger = new MetroFramework.Controls.MetroLabel();
             this.combox_Datenträger = new MetroFramework.Controls.MetroComboBox();
+            this.datenträgerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mlInterfaceType_Value = new MetroFramework.Controls.MetroLabel();
             this.mlModel = new MetroFramework.Controls.MetroLabel();
             this.mlModel_Value = new MetroFramework.Controls.MetroLabel();
@@ -60,6 +62,7 @@
             this.mlTracksPerCylinder = new MetroFramework.Controls.MetroLabel();
             this.mlSectorsPerTrack_Value = new MetroFramework.Controls.MetroLabel();
             this.mlTracksPerCylinder_Value = new MetroFramework.Controls.MetroLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.datenträgerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mlFormDatenträger
@@ -75,17 +78,21 @@
             // 
             // combox_Datenträger
             // 
-            this.combox_Datenträger.AccessibleName = "combox_Datenträger";
+            this.combox_Datenträger.AccessibleName = "";
             this.combox_Datenträger.FormattingEnabled = true;
             this.combox_Datenträger.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.combox_Datenträger.ItemHeight = 23;
             this.combox_Datenträger.Location = new System.Drawing.Point(495, 31);
-            this.combox_Datenträger.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.combox_Datenträger.Margin = new System.Windows.Forms.Padding(6);
             this.combox_Datenträger.Name = "combox_Datenträger";
             this.combox_Datenträger.Size = new System.Drawing.Size(453, 29);
             this.combox_Datenträger.TabIndex = 2;
             this.combox_Datenträger.UseSelectable = true;
             this.combox_Datenträger.Click += new System.EventHandler(this.combox_Datenträger_SelectionChanged);
+            // 
+            // datenträgerBindingSource
+            // 
+            this.datenträgerBindingSource.DataSource = typeof(SystemMonitoring.Hardware.Datenträger);
             // 
             // mlInterfaceType_Value
             // 
@@ -441,10 +448,11 @@
             this.Controls.Add(this.combox_Datenträger);
             this.Controls.Add(this.mlFormDatenträger);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormDatenträger";
             this.Text = "FormDatenträger";
             this.Load += new System.EventHandler(this.FormDatenträger_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.datenträgerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,5 +492,6 @@
         private MetroFramework.Controls.MetroLabel mlTracksPerCylinder;
         private MetroFramework.Controls.MetroLabel mlSectorsPerTrack_Value;
         private MetroFramework.Controls.MetroLabel mlTracksPerCylinder_Value;
+        private System.Windows.Forms.BindingSource datenträgerBindingSource;
     }
 }

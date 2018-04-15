@@ -15,6 +15,35 @@ namespace SystemMonitoring.Hardware
 
         }
 
+        public static List<string> AlleMonitore()
+        {
+            List<string> Auswahlmonitor = new List<string>();
+            ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor");
+
+            foreach (ManagementObject d in mos.Get())
+            {
+                Auswahlmonitor.Add(d["Caption"].ToString());
+            }
+            return Auswahlmonitor;
+
+
+            //ManagementObjectSearcher OS = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor");
+            ////ManagementObjectCollection queryCollection = OS.Get();
+            //foreach (ManagementObject mo in OS.Get())
+            //{
+            //    BildName = mo["Name"].ToString();
+            //    //Caption = mo["MonitorManufacturer"].ToString();
+            //    //Description = mo["PNPDeviceID"].ToString();
+            //    //DeviceID = mo["Status"].ToString();
+            //    //MonitorType = mo["DeviceID"].ToString();
+            //    //CreationClassName = mo["Bandwidth"].ToString();
+            //    Console.WriteLine(CreationClassName);
+            //}
+        }
+
+
+       
+
         public static string BildschirmName(string name, string syntax)
         {
             String bildName = string.Empty;

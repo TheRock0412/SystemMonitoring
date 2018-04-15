@@ -37,12 +37,17 @@ namespace SystemMonitoring.GUI
                 Console.WriteLine(CreationClassName);
             }
 
-            metroLabel2.Text = BildName;
+            //metroLabel2.Text = BildName;
             metroLabel4.Text = Caption;
             metroLabel6.Text = Description;
             metroLabel8.Text = DeviceID;
             metroLabel10.Text = MonitorType;
             //metroLabel12.Text = CreationClassName;
+        }
+
+        private void FormBildschirm_Load(object sender, EventArgs e)
+        {
+            combo_Monitor.DataSource = Hardware.Bildschirm.AlleMonitore();
         }
     }
 }

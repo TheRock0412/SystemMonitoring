@@ -53,13 +53,7 @@ namespace SystemMonitoring
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            Datenträger datenträger = new Datenträger();
-
             Application.Run(new Form1());
-
-
-            
         }
     }
 }

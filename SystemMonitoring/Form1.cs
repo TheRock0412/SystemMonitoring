@@ -19,7 +19,6 @@ namespace SystemMonitoring
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         private Form f;
-        private List<string> auswahldatenträger;
 
         public Form1()
         {
@@ -86,7 +85,7 @@ namespace SystemMonitoring
 
                 case "Datenträger":
                     f.Dispose();
-                    f = new GUI.FormDatenträger(auswahldatenträger);
+                    f = new GUI.FormDatenträger();
                     f.TopLevel = false;
 
                     this.MainPanel.Controls.Add(f);
@@ -104,7 +103,7 @@ namespace SystemMonitoring
                     f.Show();
                     break;
 
-                case "Bildschirm":
+                case "Monitor":
                     f.Dispose();
                     f = new GUI.FormBildschirm();
                     f.TopLevel = false;
