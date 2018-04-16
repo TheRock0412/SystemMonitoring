@@ -7,31 +7,14 @@ namespace SystemMonitoring.Hardware
 {
     public class Mainboard
     {
-        public static string Mainboardname;
-        public static string SerialNumber;
-
-
-        public void Mainboarda()
-        {
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
-
-            foreach (ManagementObject d in mos.Get())
-            {
-                Mainboardname = d["Product"].ToString();
-                SerialNumber = d["SerialNumber"].ToString();
-                Console.WriteLine(Mainboardname);
-            }
-            Console.WriteLine("asdf" + Mainboardname);
-        }
-
-            
-
-
-
-
-    private static ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
+        private static ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
         private static ManagementObjectSearcher motherboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_MotherboardDevice");
 
+        public Mainboard()
+        {
+
+        }
+        
         static public string Availability
         {
             get
@@ -288,24 +271,24 @@ namespace SystemMonitoring.Hardware
             }
         }
 
-        //static public string SerialNumber
-        //{
-        //    get
-        //    {
-        //        try
-        //        {
-        //            foreach (ManagementObject queryObj in baseboardSearcher.Get())
-        //            {
-        //                return queryObj["SerialNumber"].ToString();
-        //            }
-        //            return "";
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return "";
-        //        }
-        //    }
-        //}
+        static public string SerialNumber
+        {
+            get
+            {
+                try
+                {
+                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
+                    {
+                        return queryObj["SerialNumber"].ToString();
+                    }
+                    return "";
+                }
+                catch (Exception e)
+                {
+                    return "";
+                }
+            }
+        }
 
         static public string Status
         {

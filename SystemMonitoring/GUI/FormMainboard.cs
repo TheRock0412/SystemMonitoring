@@ -17,8 +17,8 @@ namespace SystemMonitoring.GUI
         {
             InitializeComponent();
 
-            metroLabel2.Text = Hardware.Mainboard.Mainboardname;
-            metroLabel4.Text = Hardware.Mainboard.SerialNumber;
+            ml_Mainboradname_Value.Text = Hardware.Mainboard.Product;
+            //metroLabel4.Text = Hardware.Mainboard.SerialNumber;
             metroLabel6.Text = Hardware.Mainboard.Manufacturer;
             metroLabel8.Text = Hardware.Mainboard.PrimaryBusType;
             metroLabel10.Text = Hardware.Mainboard.SecondaryBusType;

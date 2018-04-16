@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.ml_Mainboradname_Value = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -52,14 +52,14 @@
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "Mainboard";
             // 
-            // metroLabel2
+            // ml_Mainboradname_Value
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(270, 25);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel2.TabIndex = 1;
-            this.metroLabel2.Text = "metroLabel2";
+            this.ml_Mainboradname_Value.AutoSize = true;
+            this.ml_Mainboradname_Value.Location = new System.Drawing.Point(270, 25);
+            this.ml_Mainboradname_Value.Name = "ml_Mainboradname_Value";
+            this.ml_Mainboradname_Value.Size = new System.Drawing.Size(83, 19);
+            this.ml_Mainboradname_Value.TabIndex = 1;
+            this.ml_Mainboradname_Value.Text = "metroLabel2";
             // 
             // metroLabel3
             // 
@@ -172,7 +172,7 @@
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.ml_Mainboradname_Value);
             this.Controls.Add(this.metroLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMainboard";
@@ -185,7 +185,7 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel ml_Mainboradname_Value;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel5;
