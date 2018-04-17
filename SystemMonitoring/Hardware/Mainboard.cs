@@ -14,7 +14,7 @@ namespace SystemMonitoring.Hardware
         {
 
         }
-        
+
         static public string Availability
         {
             get
