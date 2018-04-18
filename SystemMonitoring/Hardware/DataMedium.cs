@@ -7,42 +7,30 @@ using SystemMonitoring.GUI;
 
 namespace SystemMonitoring.Hardware
 {
-    class Datenträger
+    class DataMedium
     {
-        public Datenträger()
+        public DataMedium()
         {
-            //mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
-            //Auswahldatenträger = new List<string>();
 
-            //foreach (ManagementObject d in mos.Get())
-            //{
-            //    Auswahldatenträger.Add(d["Model"].ToString());
-            //}
-
-            //for (int i = 0; i < Auswahldatenträger.Count; i++)
-            //{
-            //    //Console.WriteLine("Was steht alles im in der Liste: " + Auswahldatenträger[i].ToString());
-            //}
-            //FormDatenträger datenträger = new FormDatenträger(Auswahldatenträger);
         }
 
-        public static List<string> AlleDatenträger()
+        public static List<string> AllDataMediums()
         {
-            List<string> Auswahldatenträger = new List<string>();
+            List<string> SelectionDataMedium = new List<string>();
             ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
 
             foreach (ManagementObject d in mos.Get())
             {
-                Auswahldatenträger.Add(d["Model"].ToString());
+                SelectionDataMedium.Add(d["Model"].ToString());
             }
-           return Auswahldatenträger;
+           return SelectionDataMedium;
         }
 
-        public static void Datenträger_Eigenschaften(String Ausgewählter_Datenträger)
+        public static void DataMedium_Attributes(String SelectedDataMedium)
         {
-            List<string> Liste_der_Datenträger_Eigenschaften = new List<string>();
+            List<string> ListofDataMediumsAttributes = new List<string>();
 
-            Console.WriteLine("Übergabe der Auswahl 5: " + Ausgewählter_Datenträger);
+            Console.WriteLine("Übergabe der Auswahl 5: " + SelectedDataMedium);
 
             //ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + Ausgewählter_Datenträger);
 

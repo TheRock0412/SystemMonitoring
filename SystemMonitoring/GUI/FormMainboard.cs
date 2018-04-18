@@ -17,12 +17,18 @@ namespace SystemMonitoring.GUI
         {
             InitializeComponent();
 
-            ml_Mainboradname_Value.Text = Hardware.Mainboard.Product;
-            //metroLabel4.Text = Hardware.Mainboard.SerialNumber;
-            metroLabel6.Text = Hardware.Mainboard.Manufacturer;
-            metroLabel8.Text = Hardware.Mainboard.PrimaryBusType;
-            metroLabel10.Text = Hardware.Mainboard.SecondaryBusType;
-            metroLabel12.Text = Hardware.Mainboard.Version;
+            mlMainboradname_Value.Text = Hardware.Mainboard.Product;
+
+            mlSerialNumber_Value.Text = Hardware.Mainboard.SerialNumber;
+            mlVersion_Value.Text = Hardware.Mainboard.Version;
+            //mlInstallDate_Value.Text = Hardware.Mainboard.InstallDate;
+            mlManufacture_Value.Text = Hardware.Mainboard.Manufacturer;
+            mlPrimaryBusType_Value.Text = Hardware.Mainboard.PrimaryBusType;
+            mlSecondaryBusType_Value.Text = Hardware.Mainboard.SecondaryBusType;
+            mlStatus_Value.Text = Hardware.Mainboard.Status;
+            //mlRevisionsnumber_Value.Text = Hardware.Mainboard.RevisionNumber;
+            //mlPartnumber_Value.Text = Hardware.Mainboard.PartNumber;            
+            //mlModel_Value.Text = Hardware.Mainboard.Model;
         }
     }
 }

@@ -7,28 +7,26 @@ using System.Windows.Forms;
 
 namespace SystemMonitoring.GUI
 {
-    public partial class FormDatenträger : Form
+    public partial class FormDataMedium : Form
     {
-
-        public FormDatenträger()
+        public FormDataMedium()
         {
             InitializeComponent();
         }
          
-        public void FormDatenträger_Load(object sender, EventArgs e)
+        public void FormDataMedium_Load(object sender, EventArgs e)
         {
-            combox_Datenträger.DataSource = Hardware.Datenträger.AlleDatenträger();
+            Combox_DataMedium.DataSource = Hardware.DataMedium.AllDataMediums();
 
-            Console.WriteLine("Ausgewähltes Objekt: " + combox_Datenträger.SelectedItem);
+            Console.WriteLine("Ausgewähltes Objekt: " + Combox_DataMedium.SelectedItem);
         }
 
-        private void combox_Datenträger_SelectionChanged(object sender, EventArgs e)
+        private void Combox_DataMedium_SelectionChanged(object sender, EventArgs e)
         {
-            String AktuellerDatenträger = combox_Datenträger.SelectedItem.ToString();
+            String CurrentDataMedium = Combox_DataMedium.SelectedItem.ToString();
 
-            Hardware.Datenträger.Datenträger_Eigenschaften(AktuellerDatenträger);
+            Hardware.DataMedium.DataMedium_Attributes(CurrentDataMedium);
 
-            //Console.WriteLine("Ausgewähltes Objekt: " + sender + "Was steht in e? " + e);
 
 
 
@@ -36,7 +34,7 @@ namespace SystemMonitoring.GUI
 
 
             ManagementObjectSearcher mosDisks = new ManagementObjectSearcher(
-                "SELECT * FROM Win32_DiskDrive WHERE Model = '" + combox_Datenträger.SelectedItem + "'");
+                "SELECT * FROM Win32_DiskDrive WHERE Model = '" + Combox_DataMedium.SelectedItem + "'");
 
             foreach (ManagementObject disk in mosDisks.Get())
             {

@@ -85,7 +85,7 @@ namespace SystemMonitoring
 
                 case "Datenträger":
                     f.Dispose();
-                    f = new GUI.FormDatenträger();
+                    f = new GUI.FormDataMedium();
                     f.TopLevel = false;
 
                     this.MainPanel.Controls.Add(f);

@@ -66,7 +66,7 @@
             treeNode6.Text = "Mainboard";
             treeNode7.Name = "Monitor";
             treeNode7.Text = "Monitor";
-            treeNode8.Name = "treeview1";
+            treeNode8.Name = "Hardware";
             treeNode8.Text = "Hardware";
             treeNode9.Name = "Software";
             treeNode9.Text = "Software";

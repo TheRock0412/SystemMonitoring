@@ -36,7 +36,7 @@
             this.mlMonitor_Value = new MetroFramework.Controls.MetroLabel();
             this.mlCPU = new MetroFramework.Controls.MetroLabel();
             this.mlCPU_Value = new MetroFramework.Controls.MetroLabel();
-            this.mlDatenträger = new MetroFramework.Controls.MetroLabel();
+            this.mlDataMedium_Value = new MetroFramework.Controls.MetroLabel();
             this.mlDatenräger_Value = new MetroFramework.Controls.MetroLabel();
             this.mlGrafikkarte = new MetroFramework.Controls.MetroLabel();
             this.mlGrafikkarte_Value = new MetroFramework.Controls.MetroLabel();
@@ -127,14 +127,14 @@
             this.mlCPU_Value.TabIndex = 13;
             this.mlCPU_Value.Text = "metroLabel8";
             // 
-            // mlDatenträger
+            // mlDataMedium_Value
             // 
-            this.mlDatenträger.AutoSize = true;
-            this.mlDatenträger.Location = new System.Drawing.Point(12, 175);
-            this.mlDatenträger.Name = "mlDatenträger";
-            this.mlDatenträger.Size = new System.Drawing.Size(83, 19);
-            this.mlDatenträger.TabIndex = 14;
-            this.mlDatenträger.Text = "Datenträger:";
+            this.mlDataMedium_Value.AutoSize = true;
+            this.mlDataMedium_Value.Location = new System.Drawing.Point(12, 175);
+            this.mlDataMedium_Value.Name = "mlDataMedium_Value";
+            this.mlDataMedium_Value.Size = new System.Drawing.Size(83, 19);
+            this.mlDataMedium_Value.TabIndex = 14;
+            this.mlDataMedium_Value.Text = "Datenträger:";
             // 
             // mlDatenräger_Value
             // 
@@ -239,7 +239,7 @@
             this.Controls.Add(this.mlGrafikkarte_Value);
             this.Controls.Add(this.mlGrafikkarte);
             this.Controls.Add(this.mlDatenräger_Value);
-            this.Controls.Add(this.mlDatenträger);
+            this.Controls.Add(this.mlDataMedium_Value);
             this.Controls.Add(this.mlCPU_Value);
             this.Controls.Add(this.mlCPU);
             this.Controls.Add(this.mlMonitor_Value);
@@ -266,7 +266,7 @@
         private MetroFramework.Controls.MetroLabel mlMonitor_Value;
         private MetroFramework.Controls.MetroLabel mlCPU;
         private MetroFramework.Controls.MetroLabel mlCPU_Value;
-        private MetroFramework.Controls.MetroLabel mlDatenträger;
+        private MetroFramework.Controls.MetroLabel mlDataMedium_Value;
         private MetroFramework.Controls.MetroLabel mlDatenräger_Value;
         private MetroFramework.Controls.MetroLabel mlGrafikkarte;
         private MetroFramework.Controls.MetroLabel mlGrafikkarte_Value;

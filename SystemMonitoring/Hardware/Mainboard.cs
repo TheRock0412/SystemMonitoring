@@ -15,56 +15,24 @@ namespace SystemMonitoring.Hardware
 
         }
 
-        static public string Availability
+        static public string InstallDate
         {
-            get
+                  get
             {
                 try
                 {
                     foreach (ManagementObject queryObj in motherboardSearcher.Get())
                     {
-                        return GetAvailability(int.Parse(queryObj["Availability"].ToString()));
-                    }
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-        }
+                        string Datum = "";
 
-        static public bool HostingBoard
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        if (queryObj["HostingBoard"].ToString() == "True")
-                            return true;
+                        if (ConvertToDateTime(queryObj["InstallDate"].ToString()) == null)
+                        {
+                            return "Kein Datum vorhanden";
+                        }
                         else
-                            return false;
-                    }
-                    return false;
-                }
-                catch (Exception e)
-                {
-                    return false;
-                }
-            }
-        }
-
-        static public string InstallDate
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        return ConvertToDateTime(queryObj["InstallDate"].ToString());
+                        {
+                            return ConvertToDateTime(queryObj["InstallDate"].ToString());
+                        }                       
                     }
                     return "";
                 }
@@ -100,7 +68,7 @@ namespace SystemMonitoring.Hardware
             {
                 try
                 {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
+                    foreach (ManagementObject queryObj in motherboardSearcher.Get())
                     {
                         return queryObj["Model"].ToString();
                     }
@@ -122,25 +90,6 @@ namespace SystemMonitoring.Hardware
                     foreach (ManagementObject queryObj in baseboardSearcher.Get())
                     {
                         return queryObj["PartNumber"].ToString();
-                    }
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-        }
-
-        static public string PNPDeviceID
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in motherboardSearcher.Get())
-                    {
-                        return queryObj["PNPDeviceID"].ToString();
                     }
                     return "";
                 }
@@ -185,50 +134,6 @@ namespace SystemMonitoring.Hardware
                 catch (Exception e)
                 {
                     return "";
-                }
-            }
-        }
-
-        static public bool Removable
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        if (queryObj["Removable"].ToString() == "True")
-                            return true;
-                        else
-                            return false;
-                    }
-                    return false;
-                }
-                catch (Exception e)
-                {
-                    return false;
-                }
-            }
-        }
-
-        static public bool Replaceable
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        if (queryObj["Replaceable"].ToString() == "True")
-                            return true;
-                        else
-                            return false;
-                    }
-                    return false;
-                }
-                catch (Exception e)
-                {
-                    return false;
                 }
             }
         }
@@ -309,25 +214,6 @@ namespace SystemMonitoring.Hardware
             }
         }
 
-        static public string SystemName
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in motherboardSearcher.Get())
-                    {
-                        return queryObj["SystemName"].ToString();
-                    }
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-        }
-
         static public string Version
         {
             get
@@ -344,31 +230,6 @@ namespace SystemMonitoring.Hardware
                 {
                     return "";
                 }
-            }
-        }
-
-        private static string GetAvailability(int availability)
-        {
-            switch (availability)
-            {
-                case 1: return "Other";
-                case 2: return "Unknown";
-                case 3: return "Running or Full Power";
-                case 4: return "Warning";
-                case 5: return "In Test";
-                case 6: return "Not Applicable";
-                case 7: return "Power Off";
-                case 8: return "Off Line";
-                case 9: return "Off Duty";
-                case 10: return "Degraded";
-                case 11: return "Not Installed";
-                case 12: return "Install Error";
-                case 13: return "Power Save - Unknown";
-                case 14: return "Power Save - Low Power Mode";
-                case 15: return "Power Save - Standby";
-                case 16: return "Power Cycle";
-                case 17: return "Power Save - Warning";
-                default: return "Unknown";
             }
         }
 
