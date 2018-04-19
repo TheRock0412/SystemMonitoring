@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace SystemMonitoring.GUI
 {
-    public partial class FormGrafikkarte : Form
+    public partial class FormGraphics : Form
     {
-        public FormGrafikkarte()
+        public FormGraphics()
         {
             InitializeComponent();
 
-            metroLabel2.Text = Hardware.Grafikkarte.GPUName("Win32_VideoController", "Name");
+            metroLabel2.Text = Hardware.Graphics.GPUName("Win32_VideoController", "Name");
         }
     }
 }

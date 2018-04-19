@@ -8,16 +8,11 @@ namespace SystemMonitoring.Hardware
 {
     class SystemInfos
     {
-        
-
         public SystemInfos ()
         {
             string Computername = System.Windows.Forms.SystemInformation.ComputerName.ToString();
 
             Console.WriteLine("Computername: " + Computername);
-
-
         }
-
     }
 }

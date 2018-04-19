@@ -1,256 +1,212 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Management;
 
 namespace SystemMonitoring.Hardware
 {
     public class Mainboard
     {
-        private static ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
-        private static ManagementObjectSearcher motherboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_MotherboardDevice");
+        private ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
+        private ManagementObjectSearcher motherboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_MotherboardDevice");
 
         public Mainboard()
         {
 
         }
 
-        static public string InstallDate
+        public string GetProduct()
         {
-                  get
+            try
             {
-                try
+                foreach (ManagementObject queryObj in baseboardSearcher.Get())
                 {
-                    foreach (ManagementObject queryObj in motherboardSearcher.Get())
-                    {
-                        string Datum = "";
-
-                        if (ConvertToDateTime(queryObj["InstallDate"].ToString()) == null)
-                        {
-                            return "Kein Datum vorhanden";
-                        }
-                        else
-                        {
-                            return ConvertToDateTime(queryObj["InstallDate"].ToString());
-                        }                       
-                    }
-                    return "";
+                    return queryObj["Product"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return "";
-                }
+                return "Name konnte nicht ermittelt werden!";
+            }
+            catch (Exception e)
+            {
+                return "Fehler beim Abruf des Namens, Fehler: " + e;
             }
         }
 
-        static public string Manufacturer
+        public string GetSerialNumber()
         {
-            get
+            try
             {
-                try
+                foreach (ManagementObject queryObj in baseboardSearcher.Get())
                 {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        return queryObj["Manufacturer"].ToString();
-                    }
-                    return "";
+                    return queryObj["SerialNumber"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return "";
-                }
+                return "Seriellen Nummer konnte nicht ermittelt werden!";
+            }
+            catch (Exception e)
+            {
+                return "Fehler beim Abruf der Seriellen Nummber, Fehler: " + e;
             }
         }
 
-        static public string Model
+        public string GetVersion()
         {
-            get
+            try
             {
-                try
+                foreach (ManagementObject queryObj in baseboardSearcher.Get())
                 {
-                    foreach (ManagementObject queryObj in motherboardSearcher.Get())
-                    {
-                        return queryObj["Model"].ToString();
-                    }
-                    return "";
+                    return queryObj["Version"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return "";
-                }
+                return "Version konnte nicht ermittelt werden!";
+            }
+            catch (Exception e)
+            {
+                return "Fehler beim Abruf der Version, Fehler: " + e;
             }
         }
 
-        static public string PartNumber
+        //public string GetInstallDate()
+        //{
+        //    try
+        //    {
+        //        foreach (ManagementObject queryObj in motherboardSearcher.Get())
+        //        {
+        //            return queryObj["InstallDate"].ToString();
+        //        }
+        //        return "Installations Datum konnte nicht ermittelt werden!";
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return "Fehler beim Abruf des Installations Datums, Fehler: " + e;
+        //    }
+        //}
+
+        public string GetManufacturer()
         {
-            get
+            try
             {
-                try
+                foreach (ManagementObject queryObj in baseboardSearcher.Get())
                 {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        return queryObj["PartNumber"].ToString();
-                    }
-                    return "";
+                    return queryObj["Manufacturer"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return "";
-                }
+                return "Hersteller konnte nicht ermittelt werden!";
+            }
+            catch (Exception e)
+            {
+                return "Fehler beim Abruf des Herstellers, Fehler: " + e;
             }
         }
 
-        static public string PrimaryBusType
+        public string GetPrimaryBusType()
         {
-            get
+            try
             {
-                try
+                foreach (ManagementObject queryObj in motherboardSearcher.Get())
                 {
-                    foreach (ManagementObject queryObj in motherboardSearcher.Get())
-                    {
-                        return queryObj["PrimaryBusType"].ToString();
-                    }
-                    return "";
+                    return queryObj["PrimaryBusType"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return "";
-                }
+                return "Primäre Bus Typ konnte nicht ermittelt werden!";
+            }
+            catch (Exception e)
+            {
+                return "Fehler beim Abruf des Primären Bus Types, Fehler: " + e;
             }
         }
 
-        static public string Product
+        public string GetSecondaryBusType()
         {
-            get
+            try
             {
-                try
+                foreach (ManagementObject queryObj in motherboardSearcher.Get())
                 {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        return queryObj["Product"].ToString();
-                    }
-                    return "";
+                    return queryObj["SecondaryBusType"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return "";
-                }
+                return "Sekundäre Bus Typ konnte nicht ermittelt werden!";
+            }
+            catch (Exception e)
+            {
+                return "Fehler beim Abruf des Sekundären Bus Types, Fehler: " + e;
             }
         }
 
-        static public string RevisionNumber
+        public string GetStatus()
         {
-            get
+            try
             {
-                try
+                foreach (ManagementObject querObj in baseboardSearcher.Get())
                 {
-                    foreach (ManagementObject queryObj in motherboardSearcher.Get())
-                    {
-                        return queryObj["RevisionNumber"].ToString();
-                    }
-                    return "Nicht vorhanden";
+                    return querObj["Status"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return "Konnten nicht ausgelesen werden!";
-                }
+                return "Status konnte nicht ermittelt werden!";
+            }
+            catch (Exception e)
+            {
+                return "Fehler beim Abruf des Statuses, Fehler: " + e;
             }
         }
 
-        static public string SecondaryBusType
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in motherboardSearcher.Get())
-                    {
-                        return queryObj["SecondaryBusType"].ToString();
-                    }
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-        }
+        //public string GetRevisionNumber()
+        //{
+        //    try
+        //    {
+        //        foreach (ManagementObject queryObj in motherboardSearcher.Get())
+        //        {
+        //            return queryObj["RevisionNumber"].ToString();
+        //        }
+        //        return "Revisions Nummer konnte nicht ermittelt werden!";
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return "Fehler beim Abruf der Revisions Nummer, Fehler: " + e;
+        //    }
+        //}
 
-        static public string SerialNumber
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        return queryObj["SerialNumber"].ToString();
-                    }
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-        }
+        //public string GetPartNumber()
+        //{
+        //    try
+        //    {
+        //        foreach (ManagementObject queryObj in baseboardSearcher.Get())
+        //        {
+        //            return queryObj["PartNumber"].ToString();
+        //        }
+        //        return "Part Nummer konnte nicht ermittelt werden!";
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return "Fehler beim Abruf der Part Nummer, Fehler: " + e;
+        //    }
+        //}
 
-        static public string Status
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject querObj in baseboardSearcher.Get())
-                    {
-                        return querObj["Status"].ToString();
-                    }
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-        }
+        //public string GetModel()
+        //{
+        //    try
+        //    {
+        //        foreach (ManagementObject queryObj in motherboardSearcher.Get())
+        //        {
+        //            return queryObj["Model"].ToString();
+        //        }
+        //        return "Model konnte nicht ermittelt werden!";
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return "Fehler beim Abruf des Models, Fehler: " + e;
+        //    }
+        //}
 
-        static public string Version
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        return queryObj["Version"].ToString();
-                    }
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-        }
-
-        private static string ConvertToDateTime(string unconvertedTime)
-        {
-            string convertedTime = "";
-            int year = int.Parse(unconvertedTime.Substring(0, 4));
-            int month = int.Parse(unconvertedTime.Substring(4, 2));
-            int date = int.Parse(unconvertedTime.Substring(6, 2));
-            int hours = int.Parse(unconvertedTime.Substring(8, 2));
-            int minutes = int.Parse(unconvertedTime.Substring(10, 2));
-            int seconds = int.Parse(unconvertedTime.Substring(12, 2));
-            string meridian = "AM";
-            if (hours > 12)
-            {
-                hours -= 12;
-                meridian = "PM";
-            }
-            convertedTime = date.ToString() + "/" + month.ToString() + "/" + year.ToString() + " " +
-            hours.ToString() + ":" + minutes.ToString() + ":" + seconds.ToString() + " " + meridian;
-            return convertedTime;
-        }
+        //private string ConvertToDateTime(string unconvertedTime)
+        //{
+        //    string convertedTime = "";
+        //    int year = int.Parse(unconvertedTime.Substring(0, 4));
+        //    int month = int.Parse(unconvertedTime.Substring(4, 2));
+        //    int date = int.Parse(unconvertedTime.Substring(6, 2));
+        //    int hours = int.Parse(unconvertedTime.Substring(8, 2));
+        //    int minutes = int.Parse(unconvertedTime.Substring(10, 2));
+        //    int seconds = int.Parse(unconvertedTime.Substring(12, 2));
+        //    string meridian = "AM";
+        //    if (hours > 12)
+        //    {
+        //        hours -= 12;
+        //        meridian = "PM";
+        //    }
+        //    convertedTime = date.ToString() + "/" + month.ToString() + "/" + year.ToString() + " " +
+        //    hours.ToString() + ":" + minutes.ToString() + ":" + seconds.ToString() + " " + meridian;
+        //    return convertedTime;
+        //}
     }
 }

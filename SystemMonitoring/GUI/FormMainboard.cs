@@ -17,18 +17,20 @@ namespace SystemMonitoring.GUI
         {
             InitializeComponent();
 
-            mlMainboradname_Value.Text = Hardware.Mainboard.Product;
-
-            mlSerialNumber_Value.Text = Hardware.Mainboard.SerialNumber;
-            mlVersion_Value.Text = Hardware.Mainboard.Version;
-            //mlInstallDate_Value.Text = Hardware.Mainboard.InstallDate;
-            mlManufacture_Value.Text = Hardware.Mainboard.Manufacturer;
-            mlPrimaryBusType_Value.Text = Hardware.Mainboard.PrimaryBusType;
-            mlSecondaryBusType_Value.Text = Hardware.Mainboard.SecondaryBusType;
-            mlStatus_Value.Text = Hardware.Mainboard.Status;
-            //mlRevisionsnumber_Value.Text = Hardware.Mainboard.RevisionNumber;
-            //mlPartnumber_Value.Text = Hardware.Mainboard.PartNumber;            
-            //mlModel_Value.Text = Hardware.Mainboard.Model;
+            Hardware.Mainboard mainboard = new Hardware.Mainboard();
+            
+            mlMainboradname_Value.Text = mainboard.GetProduct();
+            
+            mlSerialNumber_Value.Text = mainboard.GetSerialNumber();
+            mlVersion_Value.Text = mainboard.GetVersion();
+            //mlInstallDate_Value.Text = mainboard.GetInstallDate();
+            mlManufacture_Value.Text = mainboard.GetManufacturer();
+            mlPrimaryBusType_Value.Text = mainboard.GetPrimaryBusType();
+            mlSecondaryBusType_Value.Text = mainboard.GetSecondaryBusType();
+            mlStatus_Value.Text = mainboard.GetStatus();
+            //mlRevisionsnumber_Value.Text = mainboard.GetRevisionNumber();
+            //mlPartnumber_Value.Text = mainboard.GetPartNumber();            
+            //mlModel_Value.Text = mainboard.GetModel();
         }
     }
 }

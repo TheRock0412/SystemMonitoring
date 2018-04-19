@@ -6,7 +6,7 @@ using Microsoft.VisualBasic.Devices;
 
 namespace SystemMonitoring.Hardware
 {
-    public class RAM
+    public class Memory
     {
         static PerformanceCounter freeMem = new PerformanceCounter("Memory", "Available MBytes");
 
@@ -15,11 +15,11 @@ namespace SystemMonitoring.Hardware
         static double totalMemory = Math.Round(Convert.ToDouble(((GesamterSpeicher / 1024 / 1024 / 1024))), 1);
         static double workMemory = totalMemory - VerfügbarerSpeicher;
 
-        public RAM() { 
+        public Memory() { 
               
-            Console.WriteLine("Arbeitsspeicher gesamt: " + totalMemory + " GB");
-            Console.WriteLine("Verfügbarer Arbeitsspeicher: " + VerfügbarerSpeicher + " GB");
-            Console.WriteLine("In Verwendung: " + workMemory + " GB");
+            //Console.WriteLine("Arbeitsspeicher gesamt: " + totalMemory + " GB");
+            //Console.WriteLine("Verfügbarer Arbeitsspeicher: " + VerfügbarerSpeicher + " GB");
+            //Console.WriteLine("In Verwendung: " + workMemory + " GB");
         }
 
         static public string RAMName

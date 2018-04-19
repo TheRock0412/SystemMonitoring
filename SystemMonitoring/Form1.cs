@@ -65,7 +65,7 @@ namespace SystemMonitoring
 
                 case "Arbeitsspeicher":
                     f.Dispose();
-                    f = new GUI.FormArbeitsspeicher();
+                    f = new GUI.FormMemory();
                     f.TopLevel = false;
 
                     this.MainPanel.Controls.Add(f);
@@ -75,7 +75,7 @@ namespace SystemMonitoring
 
                 case "Grafikkarte":
                     f.Dispose();
-                    f = new GUI.FormGrafikkarte();
+                    f = new GUI.FormGraphics();
                     f.TopLevel = false;
 
                     this.MainPanel.Controls.Add(f);
@@ -105,7 +105,7 @@ namespace SystemMonitoring
 
                 case "Monitor":
                     f.Dispose();
-                    f = new GUI.FormBildschirm();
+                    f = new GUI.FormMonitor();
                     f.TopLevel = false;
 
                     this.MainPanel.Controls.Add(f);

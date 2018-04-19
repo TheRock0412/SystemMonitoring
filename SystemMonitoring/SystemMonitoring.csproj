@@ -75,11 +75,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FormBildschirm.cs">
+    <Compile Include="GUI\FormMonitor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormBildschirm.Designer.cs">
-      <DependentUpon>FormBildschirm.cs</DependentUpon>
+    <Compile Include="GUI\FormMonitor.Designer.cs">
+      <DependentUpon>FormMonitor.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormCPU.cs">
       <SubType>Form</SubType>
@@ -87,11 +87,11 @@
     <Compile Include="GUI\FormCPU.Designer.cs">
       <DependentUpon>FormCPU.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FormGrafikkarte.cs">
+    <Compile Include="GUI\FormGraphics.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormGrafikkarte.Designer.cs">
-      <DependentUpon>FormGrafikkarte.cs</DependentUpon>
+    <Compile Include="GUI\FormGraphics.Designer.cs">
+      <DependentUpon>FormGraphics.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormInternet.cs">
       <SubType>Form</SubType>
@@ -105,11 +105,11 @@
     <Compile Include="GUI\FormMainboard.Designer.cs">
       <DependentUpon>FormMainboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FormArbeitsspeicher.cs">
+    <Compile Include="GUI\FormMemory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormArbeitsspeicher.Designer.cs">
-      <DependentUpon>FormArbeitsspeicher.cs</DependentUpon>
+    <Compile Include="GUI\FormMemory.Designer.cs">
+      <DependentUpon>FormMemory.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormDataMedium.cs">
       <SubType>Form</SubType>
@@ -123,13 +123,13 @@
     <Compile Include="GUI\FormSoftware.Designer.cs">
       <DependentUpon>FormSoftware.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hardware\Bildschirm.cs" />
+    <Compile Include="Hardware\Monitor.cs" />
     <Compile Include="Hardware\CPU.cs" />
     <Compile Include="Hardware\DataMedium.cs" />
-    <Compile Include="Hardware\Grafikkarte.cs" />
+    <Compile Include="Hardware\Graphics.cs" />
     <Compile Include="Hardware\Internet.cs" />
     <Compile Include="Hardware\Mainboard.cs" />
-    <Compile Include="Hardware\RAM.cs" />
+    <Compile Include="Hardware\Memory.cs" />
     <Compile Include="Hardware\SystemInfos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,14 +143,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormBildschirm.resx">
-      <DependentUpon>FormBildschirm.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FormMonitor.resx">
+      <DependentUpon>FormMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCPU.resx">
       <DependentUpon>FormCPU.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormGrafikkarte.resx">
-      <DependentUpon>FormGrafikkarte.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FormGraphics.resx">
+      <DependentUpon>FormGraphics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormInternet.resx">
       <DependentUpon>FormInternet.cs</DependentUpon>
@@ -158,8 +158,8 @@
     <EmbeddedResource Include="GUI\FormMainboard.resx">
       <DependentUpon>FormMainboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormArbeitsspeicher.resx">
-      <DependentUpon>FormArbeitsspeicher.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FormMemory.resx">
+      <DependentUpon>FormMemory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDataMedium.resx">
       <DependentUpon>FormDataMedium.cs</DependentUpon>

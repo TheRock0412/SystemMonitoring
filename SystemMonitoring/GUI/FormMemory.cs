@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace SystemMonitoring.GUI
 {
-    public partial class FormArbeitsspeicher : Form
+    public partial class FormMemory : Form
     {
         private Thread ramThread;
         private double[] ramArray = new double[60];
 
-        public FormArbeitsspeicher()
+        public FormMemory()
         {
             InitializeComponent();
         }

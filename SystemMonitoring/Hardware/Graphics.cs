@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace SystemMonitoring.Hardware
 {
-    public static class Grafikkarte
+    public class Graphics
     {
         public static string test;
 
