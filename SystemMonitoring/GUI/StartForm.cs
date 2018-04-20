@@ -14,28 +14,37 @@ namespace SystemMonitoring.GUI
 {
     public partial class StartForm : Form
     {
+        string gehtdas;
         public StartForm()
         {
             InitializeComponent();
 
+            Hardware.Memory memory = new Hardware.Memory();
             Hardware.CPU cpu = new Hardware.CPU();
             Hardware.DataMedium datamedium = new Hardware.DataMedium();
             Hardware.Graphics graphics = new Hardware.Graphics();
             Hardware.Internet internet = new Hardware.Internet();
             Hardware.Mainboard mainboard = new Hardware.Mainboard();
             Hardware.Monitor monitor = new Hardware.Monitor();
-            Hardware.Memory memory = new Hardware.Memory();
 
             metroLabel2.Text = System.Windows.Forms.SystemInformation.ComputerName.ToString();
             metroLabel26.Text = Environment.UserName;
 
-            mlArbeitsspeichername_Value.Text = "Name";//Hardware.RAM.RAMName;
-            mlMonitor_Value.Text = "Name"; //Hardware.Bildschirm.BildschirmName("MSFT_MTLogicalProcessor", "Description");
+            mlMemory_Value.Text = "Name";//Hardware.RAM.RAMName;
             mlCPU_Value.Text = Hardware.CPU.CPUName;
-            mlDataMedium_Value.Text = "Name";
-            mlGrafikkarte_Value.Text = Hardware.Graphics.GPUName("Win32_VideoController", "Name");
+            
+            for(int i = 0; i < datamedium.AllDataMediums().Count; i++)
+            {
+                gehtdas = String.Join(", ",datamedium.AllDataMediums()[i].ToArray());
+                Console.WriteLine("Foreach: " + gehtdas);
+                //Console.WriteLine("Foreach: " + datamedium.AllDataMediums()[i]);
+            }
+
+            mlDataMedium_Value.Text = gehtdas; 
+            mlGraphics_Value.Text = Hardware.Graphics.GPUName("Win32_VideoController", "Name");
             mlInternet_Value.Text = Hardware.Internet.GetNetworkAdapter();
             mlMainboard_Value.Text = mainboard.GetProduct();
+            mlMonitor_Value.Text = "Name"; //Hardware.Bildschirm.BildschirmName("MSFT_MTLogicalProcessor", "Description");            
         }
     }
 }

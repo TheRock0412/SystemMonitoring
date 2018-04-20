@@ -14,53 +14,54 @@ namespace SystemMonitoring.GUI
     public partial class FormMonitor : Form
     {
         Hardware.Monitor monitor;
-
         public string CurrentMonitor;
-
-        private void FormMonitor_Load(object sender, EventArgs e)
-        {
-            monitor = new Hardware.Monitor();
-
-            Combox_Monitor.DataSource = monitor.AllMonitors();
-        }
-
-        private void Combox_Monitor_SelectionChanged(object sender, EventArgs e)
-        {
-            monitor = new Hardware.Monitor();
-
-            CurrentMonitor = Combox_Monitor.SelectedItem.ToString();
-
-            monitor.Monitor_Attributes(CurrentMonitor);
-
-            metroLabel4.Text = monitor.GetSyntax();
-            Console.WriteLine("Wie weit geht es? " + CurrentMonitor);
-        }
 
         public FormMonitor()
         {
             InitializeComponent();
 
             //ManagementObjectSearcher OS = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor");
-            ////ManagementObjectCollection queryCollection = OS.Get();
+            //ManagementObjectCollection queryCollection = OS.Get();
+
+            //Console.WriteLine("asdfasfd: " + queryCollection);
+
             //foreach (ManagementObject mo in OS.Get())
             //{
-            //    BildName = mo["Name"].ToString();
+            //    //BildName = mo["Name"].ToString();
             //    //Caption = mo["MonitorManufacturer"].ToString();
             //    //Description = mo["PNPDeviceID"].ToString();
             //    //DeviceID = mo["Status"].ToString();
             //    //MonitorType = mo["DeviceID"].ToString();
             //    //CreationClassName = mo["Bandwidth"].ToString();
-            //    Console.WriteLine(CreationClassName);
             //}
-
-            Hardware.Monitor monitor = new Hardware.Monitor();
+            
 
             ////metroLabel2.Text = BildName;
-            
+
             //metroLabel6.Text = Description;
             //metroLabel8.Text = DeviceID;
             //metroLabel10.Text = MonitorType;
             ////metroLabel12.Text = CreationClassName;
+        }
+
+        private void FormMonitor_Load(object sender, EventArgs e)
+        {
+            monitor = new Hardware.Monitor();
+            Combox_Monitor.DataSource = monitor.AllMonitors();
+        }
+
+        private void Combox_Monitor_SelectionChanged(object sender, EventArgs e)
+        {
+            CurrentMonitor = Combox_Monitor.SelectedItem.ToString();
+
+            metroLabel4.Text = monitor.GetStatus(CurrentMonitor);
+            metroLabel6.Text = monitor.GetMonitorManufacturer(CurrentMonitor);
+            //metroLabel8.Text = monitor.GetPixelsPerXLogicalInch(CurrentMonitor);
+            metroLabel10.Text = monitor.GetMonitorType(CurrentMonitor);
+            metroLabel12.Text = monitor.GetPNPDeviceID(CurrentMonitor);
+            metroLabel1.Text = monitor.GetDeviceID(CurrentMonitor);
+            //metroLabel15.Text = monitor.GetBandwidth(CurrentMonitor);
+
         }
     }
 }

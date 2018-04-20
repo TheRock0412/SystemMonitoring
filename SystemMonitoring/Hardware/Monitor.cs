@@ -10,7 +10,7 @@ namespace SystemMonitoring.Hardware
 {
     class Monitor
     {
-        public string CurrentMonitor;
+        private ManagementObjectSearcher monitorSearcher;
 
         public Monitor()
         {
@@ -20,33 +20,24 @@ namespace SystemMonitoring.Hardware
         public List<string> AllMonitors()
         {
             List<string> Selectionmonitor = new List<string>();
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor");
+            monitorSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor");
 
-            foreach (ManagementObject d in mos.Get())
+            foreach (ManagementObject d in monitorSearcher.Get())
             {
-                Selectionmonitor.Add(d["Caption"].ToString());
+                Selectionmonitor.Add(d["Name"].ToString());
             }
             return Selectionmonitor;
         }
 
-        public void Monitor_Attributes(string SelectedMonitor)
+        public string GetStatus(string SelectedMonitor)
         {
-            Console.WriteLine("Übergabe der Auswahl 5: " + SelectedMonitor);
-            CurrentMonitor = SelectedMonitor;
-            Console.WriteLine("Current Monitor 1: " + CurrentMonitor);
-        }
-
-        public string GetSyntax()
-        {
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM CIM_DesktopMonitor WHERE Caption = '" + CurrentMonitor);
-            Console.WriteLine("Current Monitor 2: " + CurrentMonitor);
+            monitorSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor WHERE Name = '" + SelectedMonitor + "'");
 
             try
             {
-                foreach (ManagementObject queryObj in mos.Get())
+                foreach (ManagementObject queryObj in monitorSearcher.Get())
                 {
-                    return queryObj["Name"].ToString();
-                    Console.WriteLine("Cu");
+                    return queryObj["Status"].ToString();
                 }
                 return "";
             }
@@ -56,24 +47,114 @@ namespace SystemMonitoring.Hardware
             }
         }
 
-        //public static string BildschirmTyp(string name, string syntax)
-        //{
-        //    String bildTyp = string.Empty;
+        public string GetMonitorManufacturer(string SelectedMonitor)
+        {
+            monitorSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor WHERE Name = '" + SelectedMonitor + "'");
 
-        //    ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + name);
-        //    foreach (ManagementObject nj in mos.Get())
+            try
+            {
+                foreach (ManagementObject queryObj in monitorSearcher.Get())
+                {
+                    return queryObj["MonitorManufacturer"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        ////public string GetPixelsPerXLogicalInch(string SelectedMonitor)
+        ////{
+        ////    monitorSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor WHERE Name = '" + SelectedMonitor + "'");
+
+        ////    try
+        ////    {
+        ////        foreach (ManagementObject queryObj in monitorSearcher.Get())
+        ////        {
+        ////            return queryObj["Bandwidth"].ToString();
+        ////        }
+        ////        return "";
+        ////    }
+        ////    catch (Exception e)
+        ////    {
+        ////        return "";
+        ////    }
+        ////}
+
+        public string GetMonitorType(string SelectedMonitor)
+        {
+            monitorSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor WHERE Name = '" + SelectedMonitor + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in monitorSearcher.Get())
+                {
+                    return queryObj["MonitorType"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetPNPDeviceID(string SelectedMonitor)
+        {
+            monitorSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor WHERE Name = '" + SelectedMonitor + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in monitorSearcher.Get())
+                {
+                    return queryObj["PNPDeviceID"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetDeviceID(string SelectedMonitor)
+        {
+            monitorSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor WHERE Name = '" + SelectedMonitor + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in monitorSearcher.Get())
+                {
+                    return queryObj["DeviceID"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        //public string GetBandwidth(string SelectedMonitor)
+        //{
+        //    monitorSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor WHERE Name = '" + SelectedMonitor + "'");
+
+        //    try
         //    {
-        //        if (bildTyp == String.Empty)
+        //        foreach (ManagementObject queryObj in monitorSearcher.Get())
         //        {
-        //            bildTyp = Convert.ToString(nj[syntax]);
+        //            return queryObj["Bandwidth"].ToString();
         //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Bildschirmbezeichnung nicht gefunden!");
-        //        }
+        //        return "";
         //    }
-        //    return bildTyp;
+        //    catch (Exception e)
+        //    {
+        //        return "";
+        //    }
         //}
+
     }
 }
             //ManagementObjectSearcher OS = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor");

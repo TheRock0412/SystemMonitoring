@@ -10,56 +10,38 @@ namespace SystemMonitoring.GUI
     public partial class FormDataMedium : Form
     {
         Hardware.DataMedium datamedium;
+        private string CurrentDataMedium;
 
         public FormDataMedium()
         {
             InitializeComponent();
         }
-         
+
         public void FormDataMedium_Load(object sender, EventArgs e)
         {
-           datamedium = new Hardware.DataMedium();
-
+            datamedium = new Hardware.DataMedium();
             Combox_DataMedium.DataSource = datamedium.AllDataMediums();
-
-            Console.WriteLine("Ausgewähltes Objekt: " + Combox_DataMedium.SelectedItem);
         }
 
         private void Combox_DataMedium_SelectionChanged(object sender, EventArgs e)
         {
-            String CurrentDataMedium = Combox_DataMedium.SelectedItem.ToString();
+            CurrentDataMedium = Combox_DataMedium.SelectedItem.ToString();
 
-            datamedium.DataMedium_Attributes(CurrentDataMedium);
-
-
-
-            mlMediaType_Value.Text = datamedium.GetMediaType();
-
-
-
-            //ManagementObjectSearcher mosDisks = new ManagementObjectSearcher(
-            //    "SELECT * FROM Win32_DiskDrive WHERE Model = '" + Combox_DataMedium.SelectedItem + "'");
-
-            //foreach (ManagementObject disk in mosDisks.Get())
-            //{
-            //    //long Gesamtgroesse = long.Parse(disk["Size"].ToString());
-            //    //mlModel_Value = disk["Model"].ToString();
-
-            //    //mlMediaType_Value.Text = disk["MediaType"].ToString();
-            //    mlSerialNumber_Value.Text = disk["SerialNumber"].ToString();
-            //    mlInterfaceType_Value.Text = disk["InterfaceType"].ToString();
-            //    //mlSize_Value.Text = string.Format("{0:0.00} GB", Gesamtgroesse / 1024 / 1024 / 1024);
-            //    mlPartitions_Value.Text = disk["Partitions"].ToString();
-            //    //mlSignature_Value.Text = disk["Signature"].ToString();
-            //    mlFirmware_Value.Text = disk["FirmwareRevision"].ToString();
-            //    mlCylinders_Value.Text = disk["TotalCylinders"].ToString();
-            //    mlSectors_Value.Text = disk["TotalSectors"].ToString();
-            //    mlHeads_Value.Text = disk["TotalHeads"].ToString();
-            //    mlTracks_Value.Text = disk["TotalTracks"].ToString();
-            //    mlBytesPerSector_Value.Text = disk["BytesPerSector"].ToString();
-            //    mlSectorsPerTrack_Value.Text = disk["SectorsPerTrack"].ToString();
-            //    mlTracksPerCylinder_Value.Text = disk["TracksPerCylinder"].ToString();
-            //}
+            mlModel_Value.Text = datamedium.GetModel(CurrentDataMedium);
+            mlMediaType_Value.Text = datamedium.GetMediaType(CurrentDataMedium);
+            mlSerialNumber_Value.Text = datamedium.GetSerialNumber(CurrentDataMedium);
+            mlInterfaceType_Value.Text = datamedium.GetInterfaceType(CurrentDataMedium);
+            mlSize_Value.Text = datamedium.GetSize(CurrentDataMedium);
+            mlPartitions_Value.Text = datamedium.GetPartitions(CurrentDataMedium);
+            //mlSignature_Value.Text = datamedium.GetSignature(CurrentDataMedium);
+            mlFirmware_Value.Text = datamedium.GetFirmwareRevision(CurrentDataMedium);
+            mlCylinders_Value.Text = datamedium.GetTotalCylinders(CurrentDataMedium);
+            mlSectors_Value.Text = datamedium.GetTotalSectors(CurrentDataMedium);
+            mlHeads_Value.Text = datamedium.GetTotalHeads(CurrentDataMedium);
+            mlTracks_Value.Text = datamedium.GetTotalTracks(CurrentDataMedium);
+            mlBytesPerSector_Value.Text = datamedium.GetBytesPerSector(CurrentDataMedium);
+            mlSectorsPerTrack_Value.Text = datamedium.GetSectorsPerTrack(CurrentDataMedium);
+            mlTracksPerCylinder_Value.Text = datamedium.GetTracksPerCylinder(CurrentDataMedium);
         }
     }
 }

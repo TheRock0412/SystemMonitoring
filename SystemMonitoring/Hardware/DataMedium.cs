@@ -9,7 +9,7 @@ namespace SystemMonitoring.Hardware
 {
     class DataMedium
     {
-        public string CurrentDataMedium;
+        private ManagementObjectSearcher dataMediumSearcher;
 
         public DataMedium()
         {
@@ -25,46 +25,34 @@ namespace SystemMonitoring.Hardware
             {
                 SelectionDataMedium.Add(d["Model"].ToString());
             }
-           return SelectionDataMedium;
+            return SelectionDataMedium;
         }
 
-        public void DataMedium_Attributes(string SelectedDataMedium)
+        public string GetModel(string SelectedDataMedium)
         {
-            Console.WriteLine("Übergabe der Auswahl 5: " + SelectedDataMedium);
-            CurrentDataMedium = SelectedDataMedium;
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium);
-
-
-            //private ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
-            //private ManagementObjectSearcher motherboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_MotherboardDevice");
-
-            //public string GetMediaType()
-            //{
-            //    try
-            //    {
-            //        foreach (ManagementObject queryObj in mos.Get())
-            //        {
-            //            return queryObj["MediaType"].ToString();
-            //        }
-            //        return "Model konnte nicht ermittelt werden!";
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        return "Fehler beim Abruf des Models, Fehler: " + e;
-            //    }
-            //}
-
-        }
-
-
-        public string GetMediaType()
-        {
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM CIM_DesktopMonitor WHERE Caption = '" + CurrentDataMedium);
-            Console.WriteLine("Current Monitor 2: " + CurrentDataMedium);
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
 
             try
             {
-                foreach (ManagementObject queryObj in mos.Get())
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["Model"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetMediaType(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
                 {
                     return queryObj["MediaType"].ToString();
                 }
@@ -76,43 +64,239 @@ namespace SystemMonitoring.Hardware
             }
         }
 
+        public string GetSerialNumber(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
 
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["SerialNumber"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
 
+        public string GetInterfaceType(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
 
-        //ManagementObjectSearcher mos = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + Ausgewählter_Datenträger);
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["InterfaceType"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
 
-        //foreach (ManagementObject disk in mos.Get())
-        //{
-        //    Liste_der_Datenträger_Eigenschaften.Add(disk["MediaType"].ToString());
-        //}
-        //Console.WriteLine("Liste der Eigenschaften: " + Liste_der_Datenträger_Eigenschaften);
+        public string GetSize(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
 
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    long Gesamtgroesse = long.Parse(queryObj["Size"].ToString());
+                    return string.Format("{0:0.00} GB", Gesamtgroesse / 1024 / 1024 / 1024);
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
 
-    //private void comboBoxDisks_SelectionChanged(object sender, EventArgs e)
-    //{
-    //    ManagementObjectSearcher mosDisks = new ManagementObjectSearcher(
-    //        "SELECT * FROM Win32_DiskDrive WHERE Model = '" + comboBoxDisks.SelectedItem + "'");
+        public string GetPartitions(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
 
-    //    foreach (ManagementObject disk in mosDisks.Get())
-    //    {
-    //        long Gesamtgroesse = long.Parse(disk["Size"].ToString());
-    //        Datenträgername = disk["Model"].ToString();
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["Partitions"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
 
-    //        //mlMediaType_Value.Text = disk["MediaType"].ToString();
-    //        //mlSerialNumber_Value.Text = disk["SerialNumber"].ToString();
-    //        //mlInterfaceType_Value.Text = disk["InterfaceType"].ToString();
-    //        //mlSize_Value.Text = string.Format("{0:0.00} GB", Gesamtgroesse / 1024 / 1024 / 1024);
-    //        //mlPartitions_Value.Text = disk["Partitions"].ToString();
-    //        //mlSignature_Value.Text = disk["Signature"].ToString();
-    //        //mlFirmware_Value.Text = disk["FirmwareRevision"].ToString();
-    //        //mlCylinders_Value.Text = disk["TotalCylinders"].ToString();
-    //        //mlSectors_Value.Text = disk["TotalSectors"].ToString();
-    //        //mlHeads_Value.Text = disk["TotalHeads"].ToString();
-    //        //mlTracks_Value.Text = disk["TotalTracks"].ToString();
-    //        //mlBytesPerSector_Value.Text = disk["BytesPerSector"].ToString();
-    //        //mlSectorsPerTrack_Value.Text = disk["SectorsPerTrack"].ToString();
-    //        //mlTracksPerCylinder_Value.Text = disk["TracksPerCylinder"].ToString();
-    //    }
-    //}
-}
+        public string GetSignature(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["Signature"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetFirmwareRevision(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["FirmwareRevision"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetTotalCylinders(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["TotalCylinders"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetTotalSectors(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["TotalSectors"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetTotalHeads(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["TotalHeads"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetTotalTracks(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["TotalTracks"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetBytesPerSector(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["BytesPerSector"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetSectorsPerTrack(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["SectorsPerTrack"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+
+        public string GetTracksPerCylinder(string SelectedDataMedium)
+        {
+            dataMediumSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Model = '" + SelectedDataMedium + "'");
+
+            try
+            {
+                foreach (ManagementObject queryObj in dataMediumSearcher.Get())
+                {
+                    return queryObj["TracksPerCylinder"].ToString();
+                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+        }
+    }
 }
