@@ -14,7 +14,9 @@ namespace SystemMonitoring.GUI
 {
     public partial class StartForm : Form
     {
-        string gehtdas;
+        string DataMediums;
+        string Monitors;
+
         public StartForm()
         {
             InitializeComponent();
@@ -27,24 +29,26 @@ namespace SystemMonitoring.GUI
             Hardware.Mainboard mainboard = new Hardware.Mainboard();
             Hardware.Monitor monitor = new Hardware.Monitor();
 
-            metroLabel2.Text = System.Windows.Forms.SystemInformation.ComputerName.ToString();
-            metroLabel26.Text = Environment.UserName;
-
+            mlComputerName_Value.Text = System.Windows.Forms.SystemInformation.ComputerName.ToString();
+            mlUserName_Value.Text = Environment.UserName;
             mlMemory_Value.Text = "Name";//Hardware.RAM.RAMName;
             mlCPU_Value.Text = Hardware.CPU.CPUName;
-            
-            for(int i = 0; i < datamedium.AllDataMediums().Count; i++)
+
+            foreach (string display in monitor.AllMonitors())
             {
-                gehtdas = String.Join(", ",datamedium.AllDataMediums()[i].ToArray());
-                Console.WriteLine("Foreach: " + gehtdas);
-                //Console.WriteLine("Foreach: " + datamedium.AllDataMediums()[i]);
+                Monitors += display.ToString() + "\n";
             }
 
-            mlDataMedium_Value.Text = gehtdas; 
+            mlMonitor_Value.Text = Monitors;
             mlGraphics_Value.Text = Hardware.Graphics.GPUName("Win32_VideoController", "Name");
-            mlInternet_Value.Text = Hardware.Internet.GetNetworkAdapter();
+            mlInternet_Value.Text = internet.GetNetworkAdapter();
             mlMainboard_Value.Text = mainboard.GetProduct();
-            mlMonitor_Value.Text = "Name"; //Hardware.Bildschirm.BildschirmName("MSFT_MTLogicalProcessor", "Description");            
+
+            foreach (string medium in datamedium.AllDataMediums())
+            {
+                DataMediums += medium.ToString() + "\n";
+            }
+            mlDataMedium_Value.Text = DataMediums; //Hardware.Bildschirm.BildschirmName("MSFT_MTLogicalProcessor", "Description");            
         }
     }
 }

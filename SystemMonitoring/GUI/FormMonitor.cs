@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemMonitoring.GUI
@@ -54,12 +46,12 @@ namespace SystemMonitoring.GUI
         {
             CurrentMonitor = Combox_Monitor.SelectedItem.ToString();
 
-            metroLabel4.Text = monitor.GetStatus(CurrentMonitor);
-            metroLabel6.Text = monitor.GetMonitorManufacturer(CurrentMonitor);
-            //metroLabel8.Text = monitor.GetPixelsPerXLogicalInch(CurrentMonitor);
-            metroLabel10.Text = monitor.GetMonitorType(CurrentMonitor);
-            metroLabel12.Text = monitor.GetPNPDeviceID(CurrentMonitor);
-            metroLabel1.Text = monitor.GetDeviceID(CurrentMonitor);
+            mlManufacturer_Value.Text = monitor.GetMonitorManufacturer(CurrentMonitor);
+            mlMonitorType_Value.Text = monitor.GetMonitorType(CurrentMonitor);
+            //mlDisplayFormat_Value.Text = monitor.GetPixelsPerXLogicalInch(CurrentMonitor);
+            mlStatus_Value.Text = monitor.GetStatus(CurrentMonitor);
+            mlPNPDevice_Value.Text = monitor.GetPNPDeviceID(CurrentMonitor);
+            mlDevice_Value.Text = monitor.GetDeviceID(CurrentMonitor);
             //metroLabel15.Text = monitor.GetBandwidth(CurrentMonitor);
 
         }

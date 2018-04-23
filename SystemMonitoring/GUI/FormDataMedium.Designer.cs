@@ -91,9 +91,8 @@
             this.mlInterfaceType_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlInterfaceType_Value.Location = new System.Drawing.Point(150, 177);
             this.mlInterfaceType_Value.Name = "mlInterfaceType_Value";
-            this.mlInterfaceType_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlInterfaceType_Value.Size = new System.Drawing.Size(0, 0);
             this.mlInterfaceType_Value.TabIndex = 3;
-            this.mlInterfaceType_Value.Text = "metroLabel2";
             // 
             // mlModel
             // 
@@ -110,9 +109,8 @@
             this.mlModel_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlModel_Value.Location = new System.Drawing.Point(150, 87);
             this.mlModel_Value.Name = "mlModel_Value";
-            this.mlModel_Value.Size = new System.Drawing.Size(23, 15);
+            this.mlModel_Value.Size = new System.Drawing.Size(0, 0);
             this.mlModel_Value.TabIndex = 5;
-            this.mlModel_Value.Text = "adf";
             // 
             // mlMediaType
             // 
@@ -129,9 +127,8 @@
             this.mlMediaType_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlMediaType_Value.Location = new System.Drawing.Point(150, 117);
             this.mlMediaType_Value.Name = "mlMediaType_Value";
-            this.mlMediaType_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlMediaType_Value.Size = new System.Drawing.Size(0, 0);
             this.mlMediaType_Value.TabIndex = 7;
-            this.mlMediaType_Value.Text = "metroLabel6";
             // 
             // mlSerialNumber
             // 
@@ -148,9 +145,8 @@
             this.mlSerialNumber_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlSerialNumber_Value.Location = new System.Drawing.Point(150, 147);
             this.mlSerialNumber_Value.Name = "mlSerialNumber_Value";
-            this.mlSerialNumber_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlSerialNumber_Value.Size = new System.Drawing.Size(0, 0);
             this.mlSerialNumber_Value.TabIndex = 9;
-            this.mlSerialNumber_Value.Text = "metroLabel8";
             // 
             // mlInterfaceType
             // 
@@ -203,9 +199,8 @@
             this.mlFirmware_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlFirmware_Value.Location = new System.Drawing.Point(150, 297);
             this.mlFirmware_Value.Name = "mlFirmware_Value";
-            this.mlFirmware_Value.Size = new System.Drawing.Size(74, 15);
+            this.mlFirmware_Value.Size = new System.Drawing.Size(0, 0);
             this.mlFirmware_Value.TabIndex = 15;
-            this.mlFirmware_Value.Text = "metroLabel14";
             // 
             // mlSize_Value
             // 
@@ -213,9 +208,8 @@
             this.mlSize_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlSize_Value.Location = new System.Drawing.Point(150, 207);
             this.mlSize_Value.Name = "mlSize_Value";
-            this.mlSize_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlSize_Value.Size = new System.Drawing.Size(0, 0);
             this.mlSize_Value.TabIndex = 16;
-            this.mlSize_Value.Text = "metroLabel3";
             // 
             // mlPartitions_Value
             // 
@@ -223,9 +217,8 @@
             this.mlPartitions_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlPartitions_Value.Location = new System.Drawing.Point(150, 237);
             this.mlPartitions_Value.Name = "mlPartitions_Value";
-            this.mlPartitions_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlPartitions_Value.Size = new System.Drawing.Size(0, 0);
             this.mlPartitions_Value.TabIndex = 17;
-            this.mlPartitions_Value.Text = "metroLabel4";
             // 
             // mlSignature_Value
             // 
@@ -233,9 +226,8 @@
             this.mlSignature_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlSignature_Value.Location = new System.Drawing.Point(150, 267);
             this.mlSignature_Value.Name = "mlSignature_Value";
-            this.mlSignature_Value.Size = new System.Drawing.Size(74, 15);
+            this.mlSignature_Value.Size = new System.Drawing.Size(0, 0);
             this.mlSignature_Value.TabIndex = 18;
-            this.mlSignature_Value.Text = "metroLabel15";
             // 
             // mlTotalCylinders
             // 
@@ -252,9 +244,8 @@
             this.mlCylinders_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlCylinders_Value.Location = new System.Drawing.Point(150, 327);
             this.mlCylinders_Value.Name = "mlCylinders_Value";
-            this.mlCylinders_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlCylinders_Value.Size = new System.Drawing.Size(0, 0);
             this.mlCylinders_Value.TabIndex = 20;
-            this.mlCylinders_Value.Text = "metroLabel3";
             // 
             // mlTotalSectors
             // 
@@ -271,9 +262,8 @@
             this.mlSectors_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlSectors_Value.Location = new System.Drawing.Point(150, 357);
             this.mlSectors_Value.Name = "mlSectors_Value";
-            this.mlSectors_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlSectors_Value.Size = new System.Drawing.Size(0, 0);
             this.mlSectors_Value.TabIndex = 22;
-            this.mlSectors_Value.Text = "metroLabel6";
             // 
             // mlTotalHeads
             // 
@@ -290,9 +280,8 @@
             this.mlHeads_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlHeads_Value.Location = new System.Drawing.Point(448, 87);
             this.mlHeads_Value.Name = "mlHeads_Value";
-            this.mlHeads_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlHeads_Value.Size = new System.Drawing.Size(0, 0);
             this.mlHeads_Value.TabIndex = 24;
-            this.mlHeads_Value.Text = "metroLabel2";
             // 
             // mlTracks_Value
             // 
@@ -300,9 +289,8 @@
             this.mlTracks_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlTracks_Value.Location = new System.Drawing.Point(448, 117);
             this.mlTracks_Value.Name = "mlTracks_Value";
-            this.mlTracks_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlTracks_Value.Size = new System.Drawing.Size(0, 0);
             this.mlTracks_Value.TabIndex = 25;
-            this.mlTracks_Value.Text = "metroLabel3";
             // 
             // mlTotalTracks
             // 
@@ -328,9 +316,8 @@
             this.mlBytesPerSector_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlBytesPerSector_Value.Location = new System.Drawing.Point(448, 147);
             this.mlBytesPerSector_Value.Name = "mlBytesPerSector_Value";
-            this.mlBytesPerSector_Value.Size = new System.Drawing.Size(68, 15);
+            this.mlBytesPerSector_Value.Size = new System.Drawing.Size(0, 0);
             this.mlBytesPerSector_Value.TabIndex = 28;
-            this.mlBytesPerSector_Value.Text = "metroLabel1";
             // 
             // mlSectorsPerTrack
             // 
@@ -356,9 +343,8 @@
             this.mlSectorsPerTrack_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlSectorsPerTrack_Value.Location = new System.Drawing.Point(448, 177);
             this.mlSectorsPerTrack_Value.Name = "mlSectorsPerTrack_Value";
-            this.mlSectorsPerTrack_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlSectorsPerTrack_Value.Size = new System.Drawing.Size(0, 0);
             this.mlSectorsPerTrack_Value.TabIndex = 31;
-            this.mlSectorsPerTrack_Value.Text = "metroLabel3";
             // 
             // mlTracksPerCylinder_Value
             // 
@@ -366,9 +352,8 @@
             this.mlTracksPerCylinder_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlTracksPerCylinder_Value.Location = new System.Drawing.Point(448, 207);
             this.mlTracksPerCylinder_Value.Name = "mlTracksPerCylinder_Value";
-            this.mlTracksPerCylinder_Value.Size = new System.Drawing.Size(70, 15);
+            this.mlTracksPerCylinder_Value.Size = new System.Drawing.Size(0, 0);
             this.mlTracksPerCylinder_Value.TabIndex = 32;
-            this.mlTracksPerCylinder_Value.Text = "metroLabel4";
             // 
             // FormDataMedium
             // 

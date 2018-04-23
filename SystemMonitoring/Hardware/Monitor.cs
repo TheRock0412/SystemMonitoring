@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Management;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SystemMonitoring.Hardware
 {
@@ -154,7 +150,6 @@ namespace SystemMonitoring.Hardware
         //        return "";
         //    }
         //}
-
     }
 }
             //ManagementObjectSearcher OS = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM CIM_DesktopMonitor");
