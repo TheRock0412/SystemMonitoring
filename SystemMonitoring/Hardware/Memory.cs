@@ -8,77 +8,111 @@ namespace SystemMonitoring.Hardware
 {
     public class Memory
     {
-        static PerformanceCounter freeMem = new PerformanceCounter("Memory", "Available MBytes");
 
-        static double VerfügbarerSpeicher = Math.Round(Convert.ToDouble(((freeMem.NextValue() / 1024) )), 1);
-        static double GesamterSpeicher = new ComputerInfo().TotalPhysicalMemory;
-        static double totalMemory = Math.Round(Convert.ToDouble(((GesamterSpeicher / 1024 / 1024 / 1024))), 1);
-        static double workMemory = totalMemory - VerfügbarerSpeicher;
+        ManagementObjectSearcher memorysearcher;
 
-        public Memory() { 
-              
+
+        //PerformanceCounter freeMem = new PerformanceCounter("Memory", "Available MBytes");
+
+        //double VerfügbarerSpeicher = Math.Round(Convert.ToDouble(((freeMem.NextValue() / 1024) )), 1);
+        //double GesamterSpeicher = new ComputerInfo().TotalPhysicalMemory;
+        //double totalMemory = Math.Round(Convert.ToDouble(((GesamterSpeicher / 1024 / 1024 / 1024))), 1);
+        //double workMemory = totalMemory - VerfügbarerSpeicher;
+
+        public Memory()
+        {
+
             //Console.WriteLine("Arbeitsspeicher gesamt: " + totalMemory + " GB");
             //Console.WriteLine("Verfügbarer Arbeitsspeicher: " + VerfügbarerSpeicher + " GB");
             //Console.WriteLine("In Verwendung: " + workMemory + " GB");
         }
 
-        static public string RAMName
+
+        public float GetFreeMemory()
         {
-            get
+            PerformanceCounter freeMem = new PerformanceCounter("Memory", "Available Bytes");
+            return freeMem.NextValue() / 1024;
+        }
+
+        public double GetTotalMemory()
+        {
+            double TotalPhysicalMemory = new ComputerInfo().TotalPhysicalMemory;
+            double TotalMemory = Math.Round((TotalPhysicalMemory / 1024 / 1024 / 1024), 1);
+
+            return TotalMemory;
+        }
+
+        public string GetMemoryType()
+        {
+            memorysearcher = new ManagementObjectSearcher("SELECT * FROM CIM_TemperatureSensor");
+
+            try
             {
-                try
+                foreach (ManagementObject queryObj in memorysearcher.Get())
                 {
-                    return "Test";
+                    return queryObj["Description"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return "";
-                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
             }
         }
 
-        static public double RAMVerfügbar
+        public string GetPartNumber()
         {
-            get
+            memorysearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_PhysicalMemory");
+
+            ManagementObjectCollection res = memorysearcher.Get();
+            try
             {
-                try
+                foreach (ManagementObject queryObj in memorysearcher.Get())
                 {
-                    return VerfügbarerSpeicher;
+                    return queryObj["PartNumber"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return 0;
-                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
             }
         }
 
-        static public double RAMGesamt
+        public string GetManufacturer()
         {
-            get
+            memorysearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_PhysicalMemory");
+
+            ManagementObjectCollection res = memorysearcher.Get();
+            try
             {
-                try
+                foreach (ManagementObject queryObj in memorysearcher.Get())
                 {
-                    return totalMemory;
+                    return queryObj["Manufacturer"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return 0;
-                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
             }
         }
 
-        static public double RAMinVerwendung
+        public string GetSerialNumber()
         {
-            get
+            memorysearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_PhysicalMemory");
+
+            try
             {
-                try
+                foreach (ManagementObject queryObj in memorysearcher.Get())
                 {
-                    return workMemory;
+                    return queryObj["SerialNumber"].ToString();
                 }
-                catch (Exception e)
-                {
-                    return 0;
-                }
+                return "";
+            }
+            catch (Exception e)
+            {
+                return "";
             }
         }
     }

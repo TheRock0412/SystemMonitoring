@@ -1,38 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SystemMonitoring.GUI
 {
     public partial class FormMemory : Form
     {
-        private Thread ramThread;
-        private double[] ramArray = new double[60];
+        private Thread MemoryThread;
+        private double[] MemoryArray = new double[60];
+        private float[] FreeMemoryArray = new float[1];
+
+        Hardware.Memory memory = new Hardware.Memory();
 
         public FormMemory()
         {
             InitializeComponent();
+
+            mlFreeMemory_Value.Text = memory.GetFreeMemory().ToString();
+            mlMemorySize_Value.Text = memory.GetTotalMemory().ToString();
+            mlMemoryCommitted_Value.Text = memory.GetMemoryType().ToString();
+            mlPartNumber_Value.Text = memory.GetPartNumber();
+            mlManufacturer_Value.Text = memory.GetManufacturer();
+            //mlSerialNumber_Value.Text = memory.GetSerialNumber();
         }
 
-        private void getPerformanceCountersRAM()
+        private void getPerformanceCounterFreeMemory()
+        {
+            var freeMermoryPerfCounter = new PerformanceCounter("Memory", "Available Bytes");
+
+            while (true)
+            {
+
+            }
+        }
+
+        private void getPerformanceCountersMemory()
         {
             var ramPerfCounter = new PerformanceCounter("Memory", "% Committed Bytes in Use");
 
             while (true)
             {
-                ramArray[ramArray.Length - 1] = Math.Round(ramPerfCounter.NextValue(), 0);
+                MemoryArray[MemoryArray.Length - 1] = Math.Round(ramPerfCounter.NextValue(), 0);
 
-                Array.Copy(ramArray, 1, ramArray, 0, ramArray.Length - 1);
+                Array.Copy(MemoryArray, 1, MemoryArray, 0, MemoryArray.Length - 1);
 
-                if (ramChart.IsHandleCreated)
+                if (MemoryChart.IsHandleCreated)
                 {
                     this.Invoke((MethodInvoker)delegate { UpdateRamChart(); });
                 }
@@ -47,21 +60,23 @@ namespace SystemMonitoring.GUI
 
         private void UpdateRamChart()
         {
-            ramChart.Series["RAM_Usage"].Points.Clear();
+            MemoryChart.Series["RAM_Usage"].Points.Clear();
 
-            for (int i = 0; i < ramArray.Length - 1; ++i)
+            for (int i = 0; i < MemoryArray.Length - 1; ++i)
             {
-                ramChart.Series["RAM_Usage"].Points.AddY(ramArray[i]);
+                MemoryChart.Series["RAM_Usage"].Points.AddY(MemoryArray[i]);
+               // mlMemoryCommitted_Value.Text = string.Format("{0:0} MB", MemoryArray[i]);
             }
         }
 
         private void FormArbeitsspeicher_Load(object sender, EventArgs e)
         {
-            ramThread = new Thread(new ThreadStart(this.getPerformanceCountersRAM));
-            ramThread.IsBackground = true;
-            ramChart.ChartAreas[0].AxisY.Maximum = 100;
-            ramChart.ChartAreas[0].AxisY.Minimum = 0;
-            ramThread.Start();
+            MemoryThread = new Thread(new ThreadStart(this.getPerformanceCountersMemory));
+            MemoryThread.IsBackground = true;
+            MemoryThread.Start();
+
+            MemoryChart.ChartAreas[0].AxisY.Maximum = 100;
+            MemoryChart.ChartAreas[0].AxisY.Minimum = 0;
         }
     }
 }
