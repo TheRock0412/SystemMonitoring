@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MemoryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -43,19 +43,20 @@
             this.mlPartNumber_Value = new MetroFramework.Controls.MetroLabel();
             this.mlManufacturer = new MetroFramework.Controls.MetroLabel();
             this.mlManufacturer_Value = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.MemoryChart)).BeginInit();
             this.SuspendLayout();
             // 
             // MemoryChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.MemoryChart.ChartAreas.Add(chartArea1);
+            chartArea7.Name = "ChartArea1";
+            this.MemoryChart.ChartAreas.Add(chartArea7);
             this.MemoryChart.Location = new System.Drawing.Point(6, 46);
             this.MemoryChart.Name = "MemoryChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Name = "RAM_Usage";
-            this.MemoryChart.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series7.Name = "RAM_Usage";
+            this.MemoryChart.Series.Add(series7);
             this.MemoryChart.Size = new System.Drawing.Size(570, 200);
             this.MemoryChart.TabIndex = 25;
             this.MemoryChart.Text = "chart1";
@@ -92,7 +93,7 @@
             // 
             this.mlFreeMemory_Value.AutoSize = true;
             this.mlFreeMemory_Value.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.mlFreeMemory_Value.Location = new System.Drawing.Point(78, 279);
+            this.mlFreeMemory_Value.Location = new System.Drawing.Point(64, 278);
             this.mlFreeMemory_Value.Name = "mlFreeMemory_Value";
             this.mlFreeMemory_Value.Size = new System.Drawing.Size(33, 15);
             this.mlFreeMemory_Value.TabIndex = 29;
@@ -111,11 +112,11 @@
             // 
             this.mlMemorySize_Value.AutoSize = true;
             this.mlMemorySize_Value.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.mlMemorySize_Value.Location = new System.Drawing.Point(192, 279);
+            this.mlMemorySize_Value.Location = new System.Drawing.Point(190, 279);
             this.mlMemorySize_Value.Name = "mlMemorySize_Value";
-            this.mlMemorySize_Value.Size = new System.Drawing.Size(40, 19);
+            this.mlMemorySize_Value.Size = new System.Drawing.Size(31, 15);
             this.mlMemorySize_Value.TabIndex = 31;
-            this.mlMemorySize_Value.Text = "0 MB";
+            this.mlMemorySize_Value.Text = "0 GB";
             // 
             // mlMemoryCommitted
             // 
@@ -130,11 +131,11 @@
             // 
             this.mlMemoryCommitted_Value.AutoSize = true;
             this.mlMemoryCommitted_Value.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.mlMemoryCommitted_Value.Location = new System.Drawing.Point(78, 342);
+            this.mlMemoryCommitted_Value.Location = new System.Drawing.Point(64, 338);
             this.mlMemoryCommitted_Value.Name = "mlMemoryCommitted_Value";
-            this.mlMemoryCommitted_Value.Size = new System.Drawing.Size(33, 15);
+            this.mlMemoryCommitted_Value.Size = new System.Drawing.Size(31, 15);
             this.mlMemoryCommitted_Value.TabIndex = 33;
-            this.mlMemoryCommitted_Value.Text = "0 MB";
+            this.mlMemoryCommitted_Value.Text = "0 GB";
             // 
             // mlPartNumber
             // 
@@ -172,9 +173,19 @@
             this.mlManufacturer_Value.FontSize = MetroFramework.MetroLabelSize.Small;
             this.mlManufacturer_Value.Location = new System.Drawing.Point(399, 278);
             this.mlManufacturer_Value.Name = "mlManufacturer_Value";
-            this.mlManufacturer_Value.Size = new System.Drawing.Size(83, 19);
+            this.mlManufacturer_Value.Size = new System.Drawing.Size(70, 15);
             this.mlManufacturer_Value.TabIndex = 37;
             this.mlManufacturer_Value.Text = "metroLabel3";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel3.Location = new System.Drawing.Point(468, 46);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(85, 15);
+            this.metroLabel3.TabIndex = 38;
+            this.metroLabel3.Text = "Auslastung in %";
             // 
             // FormMemory
             // 
@@ -182,6 +193,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(565, 390);
+            this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.mlManufacturer_Value);
             this.Controls.Add(this.mlManufacturer);
             this.Controls.Add(this.mlPartNumber_Value);
@@ -220,5 +232,6 @@
         private MetroFramework.Controls.MetroLabel mlPartNumber_Value;
         private MetroFramework.Controls.MetroLabel mlManufacturer;
         private MetroFramework.Controls.MetroLabel mlManufacturer_Value;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
     }
 }

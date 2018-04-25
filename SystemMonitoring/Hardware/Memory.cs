@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Management;
 using Microsoft.VisualBasic.Devices;
 
@@ -11,28 +9,52 @@ namespace SystemMonitoring.Hardware
 
         ManagementObjectSearcher memorysearcher;
 
-
-        //PerformanceCounter freeMem = new PerformanceCounter("Memory", "Available MBytes");
-
-        //double VerfügbarerSpeicher = Math.Round(Convert.ToDouble(((freeMem.NextValue() / 1024) )), 1);
-        //double GesamterSpeicher = new ComputerInfo().TotalPhysicalMemory;
-        //double totalMemory = Math.Round(Convert.ToDouble(((GesamterSpeicher / 1024 / 1024 / 1024))), 1);
-        //double workMemory = totalMemory - VerfügbarerSpeicher;
-
         public Memory()
         {
 
-            //Console.WriteLine("Arbeitsspeicher gesamt: " + totalMemory + " GB");
-            //Console.WriteLine("Verfügbarer Arbeitsspeicher: " + VerfügbarerSpeicher + " GB");
-            //Console.WriteLine("In Verwendung: " + workMemory + " GB");
         }
 
 
-        public float GetFreeMemory()
+
+
+
+
+
+        public int GetFreeMemory()
         {
-            PerformanceCounter freeMem = new PerformanceCounter("Memory", "Available Bytes");
-            return freeMem.NextValue() / 1024;
+            ObjectQuery winQuery = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(winQuery);
+            int test = 0;
+            foreach (ManagementObject item in searcher.Get())
+            {
+                //Console.WriteLine("Total Space = " + item["TotalPageFileSpace"]);
+                test = Convert.ToInt32(item["FreePhysicalMemory"]);
+
+                //Console.WriteLine("Total Virtual Memory = " + item["TotalVirtualMemory"]);
+                //Console.WriteLine("Available Virtual Memory = " + item["AvailableVirtualMemory"]);
+            }
+            return test / 1024;
         }
+
+
+        //var wmiObject = new ManagementObjectSearcher("select * from Win32_OperatingSystem");
+
+        //var memoryValues = wmiObject.Get().Cast<ManagementObject>().Select(mo => new
+        //{
+        //    FreePhysicalMemory = Double.Parse(mo["FreePhysicalMemory"].ToString()),
+        //    TotalVisibleMemorySize = Double.Parse(mo["TotalVisibleMemorySize"].ToString())
+        //}).FirstOrDefault();
+
+        //if (memoryValues != null)
+        //{
+        //    var percent = ((memoryValues.TotalVisibleMemorySize - memoryValues.FreePhysicalMemory) / memoryValues.TotalVisibleMemorySize) * 100;
+        //}
+
+
+
+
+        //}
 
         public double GetTotalMemory()
         {
@@ -42,23 +64,23 @@ namespace SystemMonitoring.Hardware
             return TotalMemory;
         }
 
-        public string GetMemoryType()
-        {
-            memorysearcher = new ManagementObjectSearcher("SELECT * FROM CIM_TemperatureSensor");
+        //public string GetMemoryType()
+        //{
+        //    memorysearcher = new ManagementObjectSearcher("SELECT * FROM CIM_TemperatureSensor");
 
-            try
-            {
-                foreach (ManagementObject queryObj in memorysearcher.Get())
-                {
-                    return queryObj["Description"].ToString();
-                }
-                return "";
-            }
-            catch (Exception e)
-            {
-                return "";
-            }
-        }
+        //    try
+        //    {
+        //        foreach (ManagementObject queryObj in memorysearcher.Get())
+        //        {
+        //            return queryObj["Description"].ToString();
+        //        }
+        //        return "";
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return "";
+        //    }
+        //}
 
         public string GetPartNumber()
         {
