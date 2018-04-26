@@ -14,27 +14,19 @@ namespace SystemMonitoring.Hardware
 
         }
 
-
-
-
-
-
-
-        public int GetFreeMemory()
+        public float GetFreeMemory()
         {
+            //Angaben sind in KB
             ObjectQuery winQuery = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
-
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(winQuery);
-            int test = 0;
+
+            float FreeMemory = 0;
+
             foreach (ManagementObject item in searcher.Get())
             {
-                //Console.WriteLine("Total Space = " + item["TotalPageFileSpace"]);
-                test = Convert.ToInt32(item["FreePhysicalMemory"]);
-
-                //Console.WriteLine("Total Virtual Memory = " + item["TotalVirtualMemory"]);
-                //Console.WriteLine("Available Virtual Memory = " + item["AvailableVirtualMemory"]);
+                FreeMemory = Convert.ToInt32(item["FreePhysicalMemory"]);
             }
-            return test / 1024;
+            return FreeMemory;
         }
 
 
@@ -58,9 +50,10 @@ namespace SystemMonitoring.Hardware
 
         public double GetTotalMemory()
         {
+            //GetTotalMemory wird in Byte abgefragt und auf KB umgerechnet
             double TotalPhysicalMemory = new ComputerInfo().TotalPhysicalMemory;
-            double TotalMemory = Math.Round((TotalPhysicalMemory / 1024 / 1024 / 1024), 1);
-
+            double TotalMemory = Math.Round((TotalPhysicalMemory / 1024), 1);
+            
             return TotalMemory;
         }
 

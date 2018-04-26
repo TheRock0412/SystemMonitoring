@@ -7,9 +7,8 @@ namespace SystemMonitoring.GUI
 {
     public partial class FormMemory : Form
     {
-        private Thread MemoryThread, FreeMemoryThread;
+        private Thread MemoryThread, FreeMemoryThread, InUseMemoryThread;
         private double[] MemoryArray = new double[60];
-        private float[] FreeMemoryArray = new float[1];
 
         Hardware.Memory memory = new Hardware.Memory();
 
@@ -17,22 +16,10 @@ namespace SystemMonitoring.GUI
         {
             InitializeComponent();
 
-            //mlFreeMemory_Value.Text = memory.GetFreeMemory();
-            mlMemorySize_Value.Text = string.Format("{0:0.0} GB", memory.GetTotalMemory());
-            //mlMemoryCommitted_Value.Text = memory.GetMemoryType().ToString();
+            mlMemorySize_Value.Text = string.Format("{0:0.0} GB", Math.Round(memory.GetTotalMemory() / 1024 / 1024, 2));
             mlPartNumber_Value.Text = memory.GetPartNumber();
             mlManufacturer_Value.Text = memory.GetManufacturer();
             //mlSerialNumber_Value.Text = memory.GetSerialNumber();
-        }
-
-        private void getPerformanceCounterFreeMemory()
-        {
-            var freeMermoryPerfCounter = new PerformanceCounter("Memory", "Available Bytes");
-
-            while (true)
-            {
-
-            }
         }
 
         private void getPerformanceCountersMemory()
@@ -53,7 +40,6 @@ namespace SystemMonitoring.GUI
                 {
                     //......
                 }
-
                 Thread.Sleep(1000);
             }
         }
@@ -65,9 +51,6 @@ namespace SystemMonitoring.GUI
             for (int i = 0; i < MemoryArray.Length - 1; ++i)
             {
                 MemoryChart.Series["RAM_Usage"].Points.AddY(MemoryArray[i]);
-                // mlMemoryCommitted_Value.Text = string.Format("{0:000000} GB", MemoryArray[i]);
-                mlMemoryCommitted_Value.Text = MemoryArray[i].ToString();
-                //mlFreeMemory_Value.Text = string.Format("{0:0} GB",  (MemoryArray[i] - memory.GetTotalMemory()) / 1024);
             }
         }
 
@@ -75,21 +58,43 @@ namespace SystemMonitoring.GUI
         {
             while (true)
             {
-                memory.GetFreeMemory();
+                float FreeMemoryinKB = memory.GetFreeMemory();
 
-                if (memory.GetFreeMemory() > 1000)
+                int FreeMemoryinMB = Convert.ToInt32(FreeMemoryinKB / 1024);
+                double FreeMemoryinGB = Math.Round(FreeMemoryinKB / 1024 / 1024, 2);
+                
+                if (FreeMemoryinMB >= 1000)
                 {
-                    string GetFreeMomoryGB = Convert.ToString(memory.GetFreeMemory() / 1024);
-                    Console.WriteLine(GetFreeMomoryGB);
-                    this.Invoke((MethodInvoker)delegate { mlFreeMemory_Value.Text = string.Format("{0:0.0} GB", GetFreeMomoryGB); });
+                    /* Invoke((MethodInvoker)delegate {*/ mlFreeMemory_Value.Text = string.Format("{0} GB", FreeMemoryinGB); //});
                 }
                 else
                 {
-                    this.Invoke((MethodInvoker)delegate { mlFreeMemory_Value.Text = string.Format("{0:000} MB", memory.GetFreeMemory().ToString()); });
+                    /*Invoke((MethodInvoker)delegate {*/ mlFreeMemory_Value.Text = string.Format("{0} MB", FreeMemoryinMB); // });
                 }
-                
-                Thread.Sleep(1000); 
+                Thread.Sleep(1000);
             }         
+        }
+
+        private void GetUpdateInUseMemory()
+        {
+            while (true)
+            {
+                double InUseMemory =  memory.GetTotalMemory() - memory.GetFreeMemory();
+
+                int InUseMemoryinMB = Convert.ToInt32(InUseMemory / 1024);
+                double InUseMemoryinGB = Math.Round(InUseMemory / 1024 / 1024, 2);
+
+                if (InUseMemory >= 10000)
+                {
+                    //*Invoke((MethodInvoker)*/delegate { mlMemoryCommitted_Value.Text = string.Format("{0} GB", InUseMemoryinGB); } ;//);
+                    Invoke(delegate { mlMemoryCommitted_Value.Text = string.Format("{0} GB", InUseMemoryinGB) };);
+                }
+                else
+                {
+                    /*Invoke((MethodInvoker)delegate {*/ mlMemoryCommitted_Value.Text = string.Format("{0} MB", InUseMemoryinMB); //});
+                }
+                Thread.Sleep(1000);
+            }
         }
 
         private void FormArbeitsspeicher_Load(object sender, EventArgs e)
@@ -101,6 +106,10 @@ namespace SystemMonitoring.GUI
             FreeMemoryThread = new Thread(new ThreadStart(this.GetUpdateFreeMemory));
             FreeMemoryThread.IsBackground = true;
             FreeMemoryThread.Start();
+
+            InUseMemoryThread = new Thread(new ThreadStart(this.GetUpdateInUseMemory));
+            InUseMemoryThread.IsBackground = true;
+            InUseMemoryThread.Start();
 
             MemoryChart.ChartAreas[0].AxisY.Maximum = 100;
             MemoryChart.ChartAreas[0].AxisY.Minimum = 0;
