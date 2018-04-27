@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.MemoryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -49,14 +49,14 @@
             // 
             // MemoryChart
             // 
-            chartArea7.Name = "ChartArea1";
-            this.MemoryChart.ChartAreas.Add(chartArea7);
+            chartArea1.Name = "ChartArea1";
+            this.MemoryChart.ChartAreas.Add(chartArea1);
             this.MemoryChart.Location = new System.Drawing.Point(6, 46);
             this.MemoryChart.Name = "MemoryChart";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series7.Name = "RAM_Usage";
-            this.MemoryChart.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Name = "RAM_Usage";
+            this.MemoryChart.Series.Add(series1);
             this.MemoryChart.Size = new System.Drawing.Size(570, 200);
             this.MemoryChart.TabIndex = 25;
             this.MemoryChart.Text = "chart1";
@@ -112,7 +112,7 @@
             // 
             this.mlMemorySize_Value.AutoSize = true;
             this.mlMemorySize_Value.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.mlMemorySize_Value.Location = new System.Drawing.Point(190, 279);
+            this.mlMemorySize_Value.Location = new System.Drawing.Point(190, 278);
             this.mlMemorySize_Value.Name = "mlMemorySize_Value";
             this.mlMemorySize_Value.Size = new System.Drawing.Size(31, 15);
             this.mlMemorySize_Value.TabIndex = 31;
@@ -131,7 +131,7 @@
             // 
             this.mlMemoryCommitted_Value.AutoSize = true;
             this.mlMemoryCommitted_Value.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.mlMemoryCommitted_Value.Location = new System.Drawing.Point(64, 338);
+            this.mlMemoryCommitted_Value.Location = new System.Drawing.Point(64, 341);
             this.mlMemoryCommitted_Value.Name = "mlMemoryCommitted_Value";
             this.mlMemoryCommitted_Value.Size = new System.Drawing.Size(31, 15);
             this.mlMemoryCommitted_Value.TabIndex = 33;

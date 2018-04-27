@@ -10,12 +10,14 @@ namespace SystemMonitoring.GUI
         private Thread cpuThread;
         private double[] cpuArray = new double[60];
 
+        Hardware.CPU cpu = new Hardware.CPU();
+
         public FormCPU()
         {
             InitializeComponent();
 
-            metroLabel2.Text = Hardware.CPU.CPUName;
-            //metroLabel4.Text = Hardware.CPU.CPUSpeed.ToString();
+            mlCPUName_Value.Text = Hardware.CPU.CPUName;
+            
         }
 
         public void getPerformanceCountersCPU()
@@ -43,11 +45,15 @@ namespace SystemMonitoring.GUI
 
         public void UpdateCpuChart()
         {
+            //double CPUSpeed = cpu.CPUSpeed() / 1000;
+            mlCPUSpeed_Value.Text = cpu.CPUSpeed(); //string.Format("{0:0.00} GHz", CPUSpeed);
+
             cpuChart.Series["CPU_Usage"].Points.Clear();
 
             for (int i = 0; i < cpuArray.Length - 1; ++i)
             {
                 cpuChart.Series["CPU_Usage"].Points.AddY(cpuArray[i]);
+                mlCPUInVerwendung_Value.Text = string.Format("{0:0} %", cpuArray[i]);
             }
         }
 

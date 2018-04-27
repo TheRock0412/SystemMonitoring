@@ -1,7 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
-
+using System.Management;
+using System.Windows.Forms;
 
 namespace SystemMonitoring.Hardware
 {
@@ -40,20 +41,37 @@ namespace SystemMonitoring.Hardware
             }
         }
 
-        //static public Double CPUSpeed
-        //{
-        //    get
-        //    {
-        //        try
-        //        {
-        //            return Math.Round(Convert.ToDouble((((double)RegKey.GetValue("~MHz") / 1000))), 1);
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return 0;
-        //        }
-        //    }
-        //}
+        public string CPUSpeed()
+        {
+            //ManagementObject Mo = new ManagementObject("Win32_Processor.DeviceID='CPU0'");
+            //uint sp = (uint)(Mo["CurrentClockSpeed"]);
+            //Mo.Dispose();
+            //return sp;
+
+            //https://mycsharp.de/wbb2/thread.php?postid=3745118
+            //https://dotnet-snippets.de/snippet/systeminformationen-aus-der-registry-lesen/1750
+            //https://dotnet-snippets.de/snippet/cpu-geschwindigkeit-ermitteln/99
+
+
+            //try
+            //{
+            //    ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\WMI", "SELECT * FROM MSAcpi_ThermalZoneTemperature");
+
+            //    foreach (ManagementObject queryObj in searcher.Get())
+            //    {
+            //        Console.WriteLine("-----------------------------------");
+            //        Console.WriteLine("MSAcpi_ThermalZoneTemperature instance");
+            //        Console.WriteLine("-----------------------------------");
+            //        Console.WriteLine("CurrentTemperature: {0}", queryObj["CurrentTemperature"]);
+            //    }
+            //    return "";
+            //}
+            //catch (ManagementException e)
+            //{
+            //    MessageBox.Show("An error occurred while querying for WMI data: " + e.Message);
+            //}
+            return "";
+        }
 
         //static public string CPUType
         //{
