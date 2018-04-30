@@ -7,8 +7,10 @@ namespace SystemMonitoring.GUI
 {
     public partial class FormCPU : Form
     {
-        private Thread cpuThread;
+        private Thread cpuThread, CPUSpeedThread;
         private double[] cpuArray = new double[60];
+
+        string asdf;
 
         Hardware.CPU cpu = new Hardware.CPU();
 
@@ -16,8 +18,8 @@ namespace SystemMonitoring.GUI
         {
             InitializeComponent();
 
-            mlCPUName_Value.Text = Hardware.CPU.CPUName;
-            
+            mlCPUName_Value.Text = cpu.CPUName();
+            //metroLabel10.Text = cpu.CPUSpeed().ToString();
         }
 
         public void getPerformanceCountersCPU()
@@ -38,7 +40,6 @@ namespace SystemMonitoring.GUI
                 {
                     //......
                 }
-
                 Thread.Sleep(1000);
             }
         }
@@ -46,7 +47,7 @@ namespace SystemMonitoring.GUI
         public void UpdateCpuChart()
         {
             //double CPUSpeed = cpu.CPUSpeed() / 1000;
-            mlCPUSpeed_Value.Text = cpu.CPUSpeed(); //string.Format("{0:0.00} GHz", CPUSpeed);
+            //mlCPUSpeed_Value.Text = cpu.CPUSpeed(); //string.Format("{0:0.00} GHz", CPUSpeed);
 
             cpuChart.Series["CPU_Usage"].Points.Clear();
 
@@ -57,11 +58,40 @@ namespace SystemMonitoring.GUI
             }
         }
 
+        public void getCPUSpeed()
+        {
+
+
+            if (asdf != string.Empty)
+            {
+                this.Invoke((MethodInvoker)delegate { getCPUSpeed1(); });
+            }
+            else
+            {
+                //......
+            }
+            Thread.Sleep(1000);
+        }
+
+        public void getCPUSpeed1()
+        {
+
+asdf = cpu.CPUSpeed().ToString();
+            metroLabel10.Text = asdf;
+            
+            
+        }
+
         private void FormCPU_Load(object sender, EventArgs e)
         {
             cpuThread = new Thread(new ThreadStart(this.getPerformanceCountersCPU));
             cpuThread.IsBackground = true;
             cpuThread.Start();
+
+            CPUSpeedThread = new Thread(new ThreadStart(this.getCPUSpeed));
+            CPUSpeedThread.IsBackground = true;
+            CPUSpeedThread.Start();
+
             cpuChart.ChartAreas[0].AxisY.Maximum = 100;
             cpuChart.ChartAreas[0].AxisY.Minimum = 0;
         }

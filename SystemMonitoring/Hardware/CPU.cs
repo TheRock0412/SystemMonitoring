@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Management;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SystemMonitoring.Hardware
@@ -9,13 +10,13 @@ namespace SystemMonitoring.Hardware
     class CPU
     {
 
-        
+
 
         public CPU()
         {
 
 
-            
+
             //Object cpuSpeed = RegKey.GetValue("~MHz");
             //Object cpuType = RegKey.GetValue("VendorIdentifier");
 
@@ -23,25 +24,22 @@ namespace SystemMonitoring.Hardware
 
         }
 
-        static public string CPUName
+        public string CPUName()
         {
-            get
-            {
-                RegistryKey RegKey = Registry.LocalMachine;
-                RegKey = RegKey.OpenSubKey("HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0");
+            RegistryKey RegKey = Registry.LocalMachine;
+            RegKey = RegKey.OpenSubKey("HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0");
 
-                try
-                {
-                    return RegKey.GetValue("ProcessorNameString").ToString();
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
+            try
+            {
+                return RegKey.GetValue("ProcessorNameString").ToString();
+            }
+            catch (Exception e)
+            {
+                return "";
             }
         }
 
-        public string CPUSpeed()
+        public int CPUSpeed()
         {
             //ManagementObject Mo = new ManagementObject("Win32_Processor.DeviceID='CPU0'");
             //uint sp = (uint)(Mo["CurrentClockSpeed"]);
@@ -70,7 +68,32 @@ namespace SystemMonitoring.Hardware
             //{
             //    MessageBox.Show("An error occurred while querying for WMI data: " + e.Message);
             //}
-            return "";
+        //    return 0;
+        //}
+
+        //public int CPUTest()
+        //{
+            ManagementObjectSearcher managementObject = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+            int Speed;
+
+                foreach (ManagementObject queryObj in managementObject.Get())
+                {
+                    Speed = Convert.ToInt32(queryObj["CurrentClockSpeed"]);
+                    Console.WriteLine("Speed: " + Speed);
+                    return Speed;
+                }
+
+            //do
+            //{
+
+            //Thread.Sleep(1000);
+
+               return 0;
+            //}
+            //while (Speed != null);
+            //{
+            //    return 0;
+            //}
         }
 
         //static public string CPUType

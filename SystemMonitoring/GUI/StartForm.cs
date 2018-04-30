@@ -31,8 +31,8 @@ namespace SystemMonitoring.GUI
 
             mlComputerName_Value.Text = System.Windows.Forms.SystemInformation.ComputerName.ToString();
             mlUserName_Value.Text = Environment.UserName;
-            mlMemory_Value.Text = "Name";//Hardware.RAM.RAMName;
-            mlCPU_Value.Text = Hardware.CPU.CPUName;
+            mlMemory_Value.Text = "Name";//memory.MemoryName;
+            mlCPU_Value.Text = cpu.CPUName();
 
             foreach (string display in monitor.AllMonitors())
             {
@@ -40,7 +40,7 @@ namespace SystemMonitoring.GUI
             }
 
             mlMonitor_Value.Text = Monitors;
-            mlGraphics_Value.Text = Hardware.Graphics.GPUName("Win32_VideoController", "Name");
+            //mlGraphics_Value.Text = graphics.GPUName("Win32_VideoController", "Name");
             mlInternet_Value.Text = internet.GetNetworkAdapter();
             mlMainboard_Value.Text = mainboard.GetProduct();
 
